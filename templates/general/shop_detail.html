@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+
+{% block title %}店舗詳細{% endblock title %}
+</head>
+<body>
+    {% block content %}
+    <main>
+    <!-- 店舗情報 -->
+    <div class="shop_info">
+        <!-- お気に入りボタン -->
+        <button class="btn_fav">
+            <img src="/static/general/images/heart.svg" style="width: 15px; height: 15px;"> お気に入りに登録
+        </button>
+        <!-- 店舗情報左 -->
+        <div class="shop_info_L">
+            <p>{{restaurant.name_alphabet}}</p>
+            <span><h1>{{restaurant.name}}</h1></span>
+            <div>
+                <img src="{{restaurant.image.url}}" alt="店舗イメージ">
+            </div>
+        </div>
+        <!-- 店舗情報右 -->
+        <div class="shop_info_R">
+            <div class="price_genre">
+                <div class="info-container">
+                    <p><img class="icon" src="/static/general/images/price.svg" alt="予算" style="width: 15px; height: 15px;"> 予算：¥{{restaurant.price_low}}〜¥{{restaurant.price_high}}</p>
+                    <p><img class="icon" src="/static/general/images/janre.svg" alt="ジャンル" style="width: 15px; height: 15px;"> ジャンル：{{restaurant.genre}}</p>
+                </div>
+                <div class="info-container">
+                    <p><img class="icon" src="/static/general/images/map.svg" alt="エリア" style="width: 15px; height: 15px;"> エリア：{{restaurant.area}}</p>
+                    <p><img class="icon" src="/static/general/images/time.svg" alt="営業時間" style="width: 15px; height: 15px;"> 営業時間：{{restaurant.time}}</p>
+                </div>
+            </div>
+            <div class="info-scroll">
+                <p>{{restaurant.information}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- 口コミと予約 -->
+    <div class="shop_contents">
+        <!-- 口コミ -->
+        <div class="review_container">
+            <div class="review_top_container">
+                <div>
+                    <h3>口コミ</h3>
+                    <p>review</p>
+                </div>
+                {% comment %} 有料ユーザー {% endcomment %}
+                {% if user_type == 'is_paid' %}
+                    <a href="{% url 'submit_review' restaurant_id=restaurant.id %}" class="btn_rev">
+                        <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く
+                    </a>
+                {% comment %} 未ログインユーザー＆一般ユーザー {% endcomment %}
+                {% comment %} 後からURLを差し込む {% endcomment %}
+                {% else %}
+                    <a href="" class="btn_rev">
+                        <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く
+                    </a>
+                {% endif %}
+            </div>
+            <div class="review_scroll">
+                <div class="review_contents">
+                    {% for review in reviews %}
+                    <p>{{review.user}}</p>
+                    <div>
+                        {% if review.rating %}
+                            <span class="rating-stars">{{ review.rating|stars }}</span>
+                        {% endif %}
+                    </div>
+                    <p>{{review.comment}}</p>
+                    
+                    <div class="review_images">
+                        {% if review.image1 %}
+                        <img src="{{review.image1.url}}" alt="" >
+                        {% endif %}
+                        {% if review.image2 %}
+                        <img src="{{review.image2.url}}" alt="">
+                        {% endif %}
+                        {% if review.image3 %}
+                        <img src="{{review.image3.url}}" alt="">
+                        {% endif %}
+                    </div>
+                    <hr class="hr_1">
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- 予約 -->
+        <div class="booking-container">
+            <div class="booking_header">
+                <p>reservation</p>
+                <h3>このお店を予約</h3>
+            </div>
+            
+            <form method="post" class="booking_form">
+                <div>
+                    {% csrf_token %} 
+                    {{ form }}
+                    {% comment %} <label for="date">予約希望日</label>
+                    <input type="date" id="date">
+                    <label for="time">予約希望時間</label>
+                    <input type="time" id="time">
+                    <label for="nop">予約人数</label>
+                    <input type="number" id="number"> {% endcomment %}
+                    <button type="submit">予約</button> 
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    </main>
+    {% endblock content %}

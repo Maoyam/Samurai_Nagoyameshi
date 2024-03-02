@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}マイページ{% endblock %}
+{% block content %}
+<div class="mypg_container">
+  <!-- 新しい予約一覧 -->
+  <h3>予約一覧</h3>
+  <div class="new_booking_container tbl_container">
+    <table>
+      <thead>
+          <tr>
+              <th>予約日時</th>
+              <th>予約人数</th>
+              <th>店舗名</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- ここに予約詳細ループ処理を追加 -->  
+          {% for booking in future_bookings %}      
+          <tr>
+              
+              <td>{{booking.booking_date}} {{booking.booking_time}}</td>
+              <td>{{booking.numbers_of_ppl}}</td>
+              <td>{{booking.restaurant}}</td>
+              
+              <td><a href="#">店舗詳細を見る</a></td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  </div>
+  <!-- お気に入り店舗とレビュー一覧 -->
+  <div class="fav_rev_container">
+    <!-- お気に入り店舗一覧 -->
+    
+    <div class="fav_rev_item">
+      <h3>Myお気に入り一覧</h3>
+      <div class="fav_rev_tble tbl_container">
+        <table>
+          <thead>
+              <tr>
+                  <th>店舗名</th>
+                  <th>カテゴリ名</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for favorite in favorites %}
+              <tr>
+              <!-- ここにループ処理を追加 -->  
+              <td>{{favorite.restaurant}}</td>
+              <td>{{favorite.restaurant.genre.name}}</td>
+              <td><a href="#">詳細を見る</a></td>
+              </tr>
+              {% endfor %}
+              <!-- ループ終了 -->
+          </tbody>
+        </table>
+      </div>
+      </div>
+    <!-- レビュー一覧 -->
+    <div class="fav_rev_item">
+      <h3>Myレビュー一覧</h3>
+      <div class="fav_rev_tble tbl_container">
+        <table>
+          <thead>
+              <tr>
+                  <th>店舗名</th>
+                  <th>訪問日</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- ここにループ処理を追加 -->
+              {% for review in reviews %}
+              <tr>
+                
+                <td>{{review.restaurant}}</td>
+                <td>{{review.visit_date}}</td>
+                <td><a href="#">詳細を見る</a></td>
+                
+              </tr>
+              {% endfor %}
+              <!-- ループ終了 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 過去の予約一覧 -->
+  <h3>過去の予約一覧</h3>
+  <div class="past_booking_container tbl_container">
+    <table>
+      <thead>
+          <tr>
+              <th>予約日時</th>
+              <th>予約人数</th>
+              <th>店舗名</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- ここにループ処理を追加 -->
+          {% for pbooking in past_bookings %}      
+          <tr>
+              
+              <td>{{pbooking.booking_date}} {{pbooking.booking_time}}</td>
+              <td>{{pbooking.numbers_of_ppl}}</td>
+              <td>{{pbooking.restaurant}}</td>
+              
+              <td><a href="#">店舗詳細を見る</a></td>
+          </tr>
+          {% endfor %}
+          <!-- ループ終了 -->
+      </tbody>
+  </table>
+  </div>
+  <!-- ユーザー情報表示 -->
+  <div class="mypg_user_info">
+    <h3>会員情報</h3>
+      <ul class="mypg_user_info_container">
+        <li class="mypg_user_info_item"><a href="{% url 'user_update' pk=user.pk %}">会員情報編集</a></li>
+        <li class="mypg_user_info_item"><a href="">有料会員停止</a></li>
+        <li class="mypg_user_info_item"><a href="">会員退会</a></li>     
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

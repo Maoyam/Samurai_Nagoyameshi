@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}店舗一覧{% endblock title %}
+</head>
+<body>
+    {% block content %}
+    <main>
+    <!-- 店舗一覧 -->
+        <h2 class="page_title">検索結果</h2>
+        <div class="shop_list_container">
+            {% for restaurant in restaurants %}
+            <a href="{% url 'shop_detail' pk=restaurant.id %}">
+                <div class="shop_item">
+                    <div>
+                        <img src="{{restaurant.image.url}}" alt="{{restaurant.name}}">
+                    </div>
+                    <div class="shop_item_text">
+                        <h2>{{restaurant.name}}</h2>
+                        <p>{{restaurant.area}} {{restaurant.genre}}</p>
+                        <p>{{restaurant.information}}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </main>
+    {% endblock content %}

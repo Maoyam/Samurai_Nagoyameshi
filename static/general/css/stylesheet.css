@@ -1,0 +1,633 @@
+body {
+    font-family: 'Hiragino Sans','Yu Gothic','Arial Narrow', Arial, sans-serif;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: #F57F00;
+    margin-bottom: 5px;
+    font-weight: 600;
+    
+}
+
+a {
+    color: #444444;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    background-color: #F57F00; 
+    color: white;
+}
+
+/* 区切り線 */
+.hr_1 {
+    border-top: 1px dotted #444444;
+    margin: 15px 0;
+}
+
+
+/* ログインページ */
+.login_container {
+    max-width: 300px;
+    width: 300px;
+}
+
+/* TOP */
+/* ヘッダー */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 0.8em;
+    height: 110px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.logo-container > p {
+    display: inline;
+    margin: 0;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.logo-container > h1 > a > img {
+    height: 80px;
+}
+
+nav {
+    padding-right: 20px;
+    padding-bottom: 7px;
+}
+
+nav > a {
+   text-decoration: none; 
+   font-size: 0.9em;
+   color: #444444;
+   margin-left: 10px;
+}
+
+/* メインコンテンツ */
+
+/* ヒーロー画像 */
+.top-images {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 135, 5, 0.16);
+    margin: 10px 0;
+}
+
+.top-images > img {
+    max-width: 100%;
+    margin: 10px 0;
+}
+
+
+/* コンテンツ */
+.main-contents {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ width: 90%;
+ max-width: 1000px;
+ margin: 20px auto;
+}
+
+.main-contents p {
+    padding-bottom: 10px;
+}
+
+/* 左側コンテンツ */
+.left-container {
+    width: 40%;
+}
+
+.search-window {
+    display: flex;
+    width: 85%;
+    margin-bottom: 10px;
+
+}
+
+.search-window > div {
+    background-color: rgba(255, 135, 5, 0.16);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+    width: 80%;
+}
+
+input::placeholder {
+    font-size: 0.7em;
+   }
+
+input[type="submit"] {
+    font-size: 0.9em;
+    color: #FFF;
+    width: 20%;
+    background-color: #F57F00;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.search-window span {
+    background-color: #F57F00;
+}
+
+.search-area {
+    width: 90%;
+}
+
+.search-area a {
+    white-space: nowrap;
+    line-height: 2.2em;
+    margin-right: 1em;
+    text-decoration: underline;
+}
+
+/* 右側コンテンツ */
+.right-container {
+    width: 40%;
+}
+
+.right-container div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 5px 10px;
+    width: 100%;
+}
+
+.right-container a {
+    width: 45%;
+}
+
+.genre-link img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+
+/* フッター */
+footer {
+    background-color: #F57F00;
+    width: 100%;
+    height: 70px;
+    position: relative;
+    margin-top: 60px;
+}
+
+footer > div {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+footer a {
+    text-decoration: underline;
+    color: #FFF;
+}
+
+footer > div > p {
+    display: block;
+    font-size: 0.8em;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #FFF;
+}
+
+
+@media screen and (max-width: 767px) {
+    /* メインコンテンツ */
+    .main-contents {
+        flex-direction: column;
+        width: 100%;
+        padding-left: 7vw;
+        row-gap: 10px;
+    }
+    /* 左側コンテンツ */
+    .left-container {
+        width: 100%;
+}
+
+    /* 右側コンテンツ */
+    .right-container {
+        width: 100%;
+}
+}
+
+/* 店舗詳細ページ */
+
+.shop_info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 360px;
+    width: 100vw;
+    background-color: rgba(255, 135, 5, 0.16);
+    position: relative;
+    padding: 0 50px 50px 50px;
+}
+
+/* お気に入り追加ボタン */
+.btn_fav {
+    height: auto;
+    width: auto;
+    font-size: 0.9em;
+    border-radius: 5px;
+    background-color: #F57F00;
+    color: #FFF;
+    position: absolute;
+    right: 100px;
+    top: 25px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+/* 店舗詳細左 */
+
+.shop_info_L {
+    width: 30%;
+    min-width: 250px;
+    margin-right: 30px;
+
+}
+
+.shop_info_L p {
+    font-size: 0.8rem;
+}
+
+.shop_info_L h1 {
+    font-size: 1.5rem;
+}
+
+.shop_info_L img {
+    width: 100%;
+    min-width: 250px;
+    max-width: 300px;
+}
+/* 店舗詳細右 */
+
+.shop_info_R {
+    width: 60%;
+    height: 200px;
+    min-width: 300px;
+} 
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.price_genre {
+    display: flex;
+    justify-content: left;
+    gap: 50px;
+}
+
+.info-scroll {
+    height: 150;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.shop_info_R p {
+    font-size: 0.9em;
+    overflow-y: auto;
+}
+
+/* レビューと予約 */
+.shop_contents {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0 0 85px;
+
+
+    
+}
+
+/* レビュー */
+.review_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    
+}
+
+.review_top_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.review_top_container h3,.review_top_container h3 p {
+    display: inline-block;
+}
+
+.review_top_container > div {
+    align-self: self-end;
+}
+
+.btn_rev {
+    height: auto;
+    width: auto;
+    padding: 15px 20px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    background-color: #F57F00;
+    color: #FFF;
+    display: inline-block;
+}
+
+.review_scroll {
+    width: 100%;
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px dotted #444444;
+}
+
+.review_contents {
+    margin: 50px;
+}
+
+.review_images {
+    display: flex;
+    flex-direction: row;
+}
+
+.review_images img {
+    width: 100px; /* 画像の幅を調整（必要に応じて調整してください） */
+    height: 100px; /* 高さは自動調整 */
+    object-fit: cover;
+    margin-right: 10px; /* 画像間の隙間を設定 */
+}
+
+
+/* スターの色を#F57F00に変更 */
+.rating-stars {
+    color: #F57F00;
+}
+
+/* 予約フォーム */
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    filter: drop-shadow(0px 0.5px 1px #000000);
+    padding-top: 55px;
+    margin-left: 20px;
+}
+
+.booking_header {
+    background-color: #F57F00;
+    color: #FFF;
+    text-align: center;
+}
+
+.booking_header p {
+    font-size: 0.7em;
+}
+
+.booking_header, .booking_form {
+    width: 300px;
+    min-width: 200px;
+}
+
+.booking_form {
+    background-color: #FFFDFB;
+    height: 300px;
+    
+}
+
+.booking_form div {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    padding-top: 25px;   
+
+}
+
+.booking_form label {
+    display: block;
+    margin-bottom: 1px;
+    font-size: 0.9em;
+}
+
+.booking_form input {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #929292;
+    background-color: #FFF;
+    color: #929292;
+    width: 100%;
+    height: 2.2em;
+}
+
+.booking_form button {
+    background-color: #F57F00;
+    color: #FFF;
+    height: auto;
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    float: right;
+    margin-top: 20px;
+}
+
+/* 店舗検索一覧 */
+
+.page_title {
+    font-size: 0.9rem;
+    padding: 15px;
+    color: #000000;
+}
+
+.shop_list_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 90%;
+
+}
+
+.shop_item {
+    width: 200px;
+    height: 300px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+    background-color: #FFFDFD;
+    margin-bottom: 70px;
+}
+
+.shop_item > div {
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.shop_item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shop_item_text {
+    padding: 1rem;
+    
+}
+
+.shop_item_text p {
+    font-size: 0.8em;
+}
+
+/* レビュー投稿ページ */
+.review_container {
+    width: 65%;
+    height: auto;
+    margin: 30px auto;
+}
+
+.review_title {
+    margin-bottom: 30px;
+}
+
+.review_title > p, .review_title > h1 {
+    text-align: center;
+}
+
+.review_title > p {
+    color: #F57F00;
+}
+
+.review_title > h1 {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.review_submit_btn {
+    float: right;
+    margin-top: 20px;
+}
+
+/* マイページ */
+
+.mypg_container {
+    width: 1080px;
+    margin: 50px auto;
+    
+}
+
+.mypg_container th, td {
+    font-size: 14px;
+}
+
+.new_booking_container {
+    width: 48%;
+    height: 100px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.tbl_container {
+    border: #444444 1px dotted;
+    border-radius: 5px;
+}
+
+.mypg_container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.mypg_container th, .mypg_container td {
+    border-bottom: 1px dotted #000;
+    padding: 8px;
+    text-align: center;
+}
+.mypg_container th {
+    background-color: #FFECD7;
+    border: none;
+}
+
+.fav_rev_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 50px auto;
+}
+
+.fav_rev_tble {
+    height: 300px;
+    overflow-y: auto;
+}
+
+.fav_rev_item {
+    width: 48%;
+}
+
+.fav_rev_item h3{
+    padding-bottom: 5px;
+}
+
+.past_booking_container {
+    width: 48%;
+    height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.past_booking_container th {
+    background-color: #D9D9D9;
+}
+/* マイページ 会員情報 */
+.mypg_user_info {
+    margin-top: 50px;
+}
+.mypg_user_info_container {
+    display: flex;
+    justify-content: left;
+    width: 70%;
+}
+
+.mypg_user_info_item{
+    display: inline-block;
+    background-color: #FFECD7;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-right: 1.5em;
+
+}
+
+.mypg_user_info_item a {
+font-size: 0.9em;
+color: #444444;
+}

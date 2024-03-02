@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}NAGOYAMeSHi{% endblock %}
+    {% block content %}
+    <main>
+        <!-- カルーセル -->
+        <div class="top-images">
+            <img src="/static/general/images/top_img1.jpg" alt="たこ焼き屋の画像">
+        </div>
+        <div class="main-contents">
+            <!-- Left search -->
+            <div class="left-container">
+                <form action="{% url 'search' %}" method="get">
+                    <div class="search-window">
+                        <div>
+                            <img src="/static/general/images/search.svg" width="13px">
+                            <input type="search" name="search" placeholder="ジャンル・店名・エリアで検索" value="{{ keyword }}">
+                        </div>
+                        <input type="submit" name="submit" value="検索">
+                    </div>
+                </form>
+                <div class="search-area">
+                    <h2><span>エリアから探す<span><img src="/static/general/images/search.svg" width="13px" alt=""></span></span></h2>
+                    <div class="area-buttons">
+                        {% for area in areas %}
+                        <a href="{% url 'shop_list_area' area.pk %}">{{area.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- Right search -->
+            <div class="right-container">
+                <h2><span>ジャンルで探す<span><img src="/static/general/images/search.svg" width="13px" alt=""></span></span></h2>
+                <div class="genre-buttons">
+                    {% for genre in genres %}
+                        {% if genre.image %}
+                            <a href="{% url 'shop_list_genre' genre.pk %}"><img src="{{ genre.image.url }}" alt="{{genre.name}}"></a>
+                            <p>{{genre.name}}</p>         
+                        {% endif %}
+                        
+                    {% endfor %}
+                </div>
+                    {% for genre in genres %}
+                        {% if not genre.image %}
+                            <p class="text-link"><span><a href="{% url 'shop_list_genre' genre.pk %}">{{genre.name}}</a></span></p>
+                        {% endif %}
+                    {% endfor %}
+            </div>
+        </div>
+    </main>
+    {% endblock %}
