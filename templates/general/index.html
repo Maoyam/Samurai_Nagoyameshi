@@ -34,8 +34,7 @@
                 <div class="genre-buttons">
                     {% for genre in genres %}
                         {% if genre.image %}
-                            <a href="{% url 'shop_list_genre' genre.pk %}"><img src="{{ genre.image.url }}" alt="{{genre.name}}"></a>
-                            <p>{{genre.name}}</p>         
+                            <a href="{% url 'shop_list_genre' genre.pk %}"><img src="{{ genre.image.url }}" alt="{{genre.name}}"></a>      
                         {% endif %}
                         
                     {% endfor %}

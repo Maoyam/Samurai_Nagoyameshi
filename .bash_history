@@ -267,3 +267,15 @@ pip install unidecode
 python manage.py runserver
 python manage.py runserver
 python manage.py runserver
+ /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 51023 -- /root/manage.py runserver 
+python manage.py runserver
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 58855 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 51365 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 56717 -- /root/manage.py runserver 
+python manage.py runserver
+python manage.py runserver
+ /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 49803 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 50713 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 42345 -- /root/manage.py runserver 
+python manage.py runserver
+python manage.py runserver

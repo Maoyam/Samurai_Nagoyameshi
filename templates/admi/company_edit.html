@@ -8,14 +8,13 @@
 {% block title %}会社情報{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-  <h2>会社情報登録</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form|bootstrap }}
-    <br>
-        
-    <button type="submit" class="btn btn-primary" style="background-color: #F57F00; color: #FFFFFF;">登録</button>
-  </form>
-</div>
+  <div class="mt-5 form_container">
+    <h2>会社情報登録</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form|bootstrap }}
+      <br>         
+      <button type="submit" class="btn btn-primary" style="background-color: #F57F00; color: #FFFFFF;">登録</button>
+    </form>
+  </div>
 {% endblock %}

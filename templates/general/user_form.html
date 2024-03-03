@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container mt-5">
     <h2>新規アカウント登録</h2>
-    <form method="post">
+    <form method="post" class="form_container mt-5">
       {% csrf_token %}
       {{ form|bootstrap }}
       <button type="submit" class="btn btn-primary" style="background-color: #F57F00; color: #FFFFFF;">登録</button>

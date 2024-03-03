@@ -3,11 +3,10 @@ body {
 }
 
 h2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #F57F00;
     margin-bottom: 5px;
-    font-weight: 600;
-    
+    font-weight: 600;  
 }
 
 a {
@@ -24,10 +23,25 @@ button {
     color: white;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 /* 区切り線 */
 .hr_1 {
     border-top: 1px dotted #444444;
     margin: 15px 0;
+}
+
+/* フォーム */
+.form_container {
+    width: 80%;
+    max-width: 350px;
+    margin: 30px auto;
+}
+.form_container button {
+    float: right;
+    margin-bottom: 30px;
 }
 
 
@@ -165,23 +179,23 @@ input[type="submit"] {
     width: 40%;
 }
 
-.right-container div {
+.genre-buttons {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: left;
-    gap: 5px 10px;
+    justify-content: space-between;
+    gap: 10px;
     width: 100%;
 }
 
-.right-container a {
-    width: 45%;
+.genre-buttons a {
+    flex: 0 0 calc(50% - 5px); /* 要素の幅を50%に設定し、間隔を考慮して10px引く */
+    max-width: calc(50% - 5px); /* 最大幅も同じ */
 }
 
-.genre-link img {
+.genre-buttons img {
     width: 100%;
-    max-width: 100%;
     border-radius: 5px;
+    
 }
 
 
@@ -213,6 +227,29 @@ footer > div > p {
     color: #FFF;
 }
 
+/* 会社概要 */
+.company_info {
+    width: 50vw;
+    min-width: 200px;
+    margin: 150px auto;
+}
+
+.company_info h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.company_info table  {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.company_info td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
 
 @media screen and (max-width: 767px) {
     /* メインコンテンツ */
@@ -230,7 +267,25 @@ footer > div > p {
     /* 右側コンテンツ */
     .right-container {
         width: 100%;
+        margin-top: 30px;
 }
+    .genre-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        max-width: 350px;
+}
+    .company_info {
+        width: 100%;
+        margin: 50px auto;
+        padding: 0 20px;
+}
+    /* フォーム */
+    .form_container {
+        width: 100%;
+        padding: 0 10px;
 }
 
 /* 店舗詳細ページ */
@@ -318,8 +373,8 @@ footer > div > p {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    padding: 50px 0 0 85px;
+    align-items: flex-start;
+    padding: 30px 0 0 85px;
 
 
     
@@ -399,7 +454,7 @@ footer > div > p {
     align-items: center;
     width: 50%;
     filter: drop-shadow(0px 0.5px 1px #000000);
-    padding-top: 55px;
+    padding-top: 90px;
     margin-left: 20px;
 }
 
@@ -420,7 +475,7 @@ footer > div > p {
 
 .booking_form {
     background-color: #FFFDFB;
-    height: 300px;
+    height: auto;
     
 }
 
@@ -451,12 +506,12 @@ footer > div > p {
 .booking_form button {
     background-color: #F57F00;
     color: #FFF;
-    height: auto;
-    width: auto;
     padding: 10px 20px;
     border-radius: 5px;
-    float: right;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* 店舗検索一覧 */
@@ -470,10 +525,12 @@ footer > div > p {
 .shop_list_container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 2rem;
     width: 90%;
+    margin-left: 100px;
+    margin-right: 100px;
 
 }
 
