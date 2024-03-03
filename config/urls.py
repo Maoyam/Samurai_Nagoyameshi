@@ -28,6 +28,7 @@ from general.views.mypage_view import MypageView
 from general.views.user_update_view import UserUpdateView
 from general.views.user_register_view import RegisterView
 from general.views.company_view import CompanyDetailView
+from general.views.password_view import PasswordChange, PasswordChangeDone, PasswordReset, PasswordResetDone, PasswordResetConfirm, PasswordResetComplete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,10 +42,16 @@ urlpatterns = [
     path('general/filter/area/<int:area>/', AreaFilterView.as_view(), name="shop_list_area"),
     path('general/submit_review/<int:restaurant_id>/', SubmitReviewView.as_view(), name="submit_review"),
     path('general/review_confirmation/<int:restaurant_id>/', ReviewConfirmationView.as_view(), name="review_confirmation"), 
-    path('general/mypage/<int:pk>', MypageView.as_view(), name='mypage'),
+    path('general/mypage/<int:pk>/', MypageView.as_view(), name='mypage'),
     path('general/register/', RegisterView.as_view(), name="register"),
     path('general/user_update/<int:pk>/', UserUpdateView.as_view(), name="user_update"),
     path('general/company/<int:pk>/', CompanyDetailView.as_view(), name="company"),
+    path('password_change/', PasswordChange.as_view(), name='password_change'),
+    path('password_change/done/', PasswordChangeDone.as_view(), name='password_change_done'),
+    path('password_reset/', PasswordReset.as_view(), name='password_reset'), #追加
+    path('password_reset/done/', PasswordResetDone.as_view(), name='password_reset_done'), #追加
+    path('reset/<uidb64>/<token>/', PasswordResetConfirm.as_view(), name='password_reset_confirm'), #追加
+    path('reset/done/', PasswordResetComplete.as_view(), name='password_reset_complete'), #追加
 ]
 
 # MEDIA_URL に対する URL パターンを追加します
