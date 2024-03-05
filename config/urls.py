@@ -28,6 +28,7 @@ from general.views.mypage_view import MypageView
 from general.views.user_update_view import UserUpdateView
 from general.views.user_register_view import RegisterView
 from general.views.company_view import CompanyDetailView
+from general.views.shop_review_confirm_view import BookingConfirmationView, BookingCompleteView
 from general.views.password_view import PasswordChange, PasswordChangeDone, PasswordReset, PasswordResetDone, PasswordResetConfirm, PasswordResetComplete
 
 urlpatterns = [
@@ -37,6 +38,8 @@ urlpatterns = [
     path('general/login/', LoginView.as_view(), name="login"),
     path('general/logout/', LogoutView.as_view(), name="logout"),
     path('general/shop_detail/<int:pk>/', ShopTemplatelView.as_view(), name="shop_detail"),
+    path('general/booking_confirmation/<int:restaurant_id>', BookingConfirmationView.as_view(), name="confirm_booking"),
+    path('general/booking_complete/',BookingCompleteView.as_view(), name='booking_complete'),
     path('general/shop_list_search/', SearchView.as_view(), name="search"),
     path('general/filter/genre/<int:genre>/', GenreFilterView.as_view(), name="shop_list_genre"),
     path('general/filter/area/<int:area>/', AreaFilterView.as_view(), name="shop_list_area"),

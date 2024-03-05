@@ -279,3 +279,16 @@ python manage.py runserver
  cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 42345 -- /root/manage.py runserver 
 python manage.py runserver
 python manage.py runserver
+python manage.py runserver
+ /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 52507 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 51409 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 53445 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 58157 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 53515 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 34599 -- /root/manage.py runserver 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.0.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 57895 -- /root/manage.py runserver 8080 
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
