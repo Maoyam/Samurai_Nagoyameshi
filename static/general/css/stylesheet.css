@@ -106,6 +106,10 @@ nav > a {
     margin: 10px 0;
 }
 
+.carouselImg {
+    margin: 0 auto;
+}
+
 .top-images > img {
     max-width: 100%;
     margin: 10px 0;
