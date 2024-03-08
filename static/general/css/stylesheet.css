@@ -154,7 +154,7 @@ input::placeholder {
     font-size: 0.7em;
    }
 
-input[type="submit"] {
+.search-window input[type="submit"] {
     font-size: 0.9em;
     color: #FFF;
     width: 20%;
@@ -696,6 +696,14 @@ color: #444444;
 }
 
 /* 管理者専用サイト */
+
+/* h2の設定 */
+.admi_h2 {
+    background-color: #c0bdbd;
+    color: #000000;
+    display: inline;
+    font-size: 14px;
+}
   /* ヘッダー */
 .admi_menu_container {
     display: flex;
@@ -713,3 +721,15 @@ color: #444444;
     font-size: 0.9em;
 
 }
+
+/* フォーム */
+.add_form label:after {
+     content: " *必須";
+     color: red;
+     font-size: 0.8em;
+}
+
+.add_form input {
+    margin-bottom: 10px;
+}
+
