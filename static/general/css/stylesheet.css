@@ -44,6 +44,13 @@ button {
     margin-bottom: 30px;
 }
 
+input[type="submit"] {
+    font-size: 0.9em;
+    color: #FFF;
+    background-color: #F57F00;
+    float: right;
+}
+
 
 /* ログインページ */
 .login_container {
@@ -155,10 +162,7 @@ input::placeholder {
    }
 
 .search-window input[type="submit"] {
-    font-size: 0.9em;
-    color: #FFF;
     width: 20%;
-    background-color: #F57F00;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
@@ -699,10 +703,9 @@ color: #444444;
 
 /* h2の設定 */
 .admi_h2 {
-    background-color: #c0bdbd;
     color: #000000;
     display: inline;
-    font-size: 14px;
+    font-size: 20px;
 }
   /* ヘッダー */
 .admi_menu_container {
@@ -730,6 +733,6 @@ color: #444444;
 }
 
 .add_form input {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 

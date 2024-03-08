@@ -15,7 +15,7 @@ class Restaurant(models.Model):
     price_low = models.CharField(max_length=5 ,verbose_name="下限価格")
     price_high = models.CharField(max_length=5, verbose_name="上限価格")
     image = models.ImageField(upload_to='restaurant_images', null=True, blank=True, verbose_name="画像")
-    information = models.CharField(max_length=300, verbose_name="お店の説明")
+    information = models.TextField(max_length=300, verbose_name="お店の説明")
     
     def __str__(self):
         return self.name

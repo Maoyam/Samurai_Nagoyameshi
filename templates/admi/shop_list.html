@@ -9,9 +9,10 @@
 {% block content %}
 <div class="company_info">
     <h2 class="admi_h2">店舗一覧</h2>
+    <button class="btn" style="background-color: #F57F00; color: #FFFFFF; float: right; margin-bottom: 5px;" onclick="location.href='{% url 'admi:add_shop' %}'">新規作成</button>
     <table class="table table-hover table-bordered">
       <thead class="table-secondary">
-        <tr>
+        <tr style="text-align: center;">
           <th>ID</th>
           <th>店名</th>
           <th>カテゴリ</th>
@@ -23,8 +24,10 @@
           <td>{{ restaurant.id }}</td>
           <td>{{ restaurant.name }}</td>
           <td>{{ restaurant.genre }}</td>
-          <td>
-            <button class="btn" onclick="location.href='{% url 'admi:edit_shop' pk=restaurant.id %}'" style="background-color: #F57F00; color: #FFFFFF;">編集</button>
+          <td style="text-align: center;">
+            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:shop_detail' pk=restaurant.id %}'" style="color: #FFFFFF;">詳細</button>
+            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:edit_shop' pk=restaurant.id %}'" style="color: #FFFFFF;">編集</button>
+            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:delete_shop' pk=restaurant.id %}'" style="color: #FFFFFF;">削除</button>         
           </td>
       </tr>
       {% endfor %}
