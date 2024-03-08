@@ -32,6 +32,7 @@
                     <p><img class="icon" src="/static/general/images/time.svg" alt="営業時間" style="width: 15px; height: 15px;"> 営業時間：{{restaurant.time}}</p>
                 </div>
             </div>
+            <p><img class="icon" src="/static/general/images/phone.svg" alt="電話番号" style="width: 15px; height: 15px;"> 電話番号：{{restaurant.phone}}</p>
             <div class="info-scroll">
                 <p>{{restaurant.information}}</p>
             </div>
@@ -101,7 +102,7 @@
                 <div>
                     {% csrf_token %} 
                     {{ form }}
-                    <button type="submit" >予約</button> 
+                    <button type="submit" >予約する</button> 
                 </div>
             </form>
             

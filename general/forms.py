@@ -1,5 +1,5 @@
 from django import forms
-from django.forms.widgets import DateInput
+from django.forms.widgets import DateInput, TimeInput
 from datetime import date
 from commondb.models.review import Review
 from commondb.models.user import User
@@ -53,7 +53,15 @@ class BookingForm(forms.ModelForm):
         fields = ['restaurant','booking_date', 'booking_time', 'numbers_of_ppl']
         widgets = {
             'booking_date': forms.DateInput(attrs={'type': 'date'}),
+            'booking_time': forms.TimeInput(attrs={'type': 'time'}),
         }
+        
+    def clean_booking_date(self):
+        booking_date = self.cleaned_data['booking_date']
+        if booking_date <= date.today():
+            raise forms.ValidationError('予約日は翌日以降を選択してください。')
+        return booking_date
+        
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

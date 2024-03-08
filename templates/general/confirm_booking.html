@@ -8,7 +8,20 @@
 <h1>予約内容の確認</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">予約する</button>
+        <table>
+            <tr>
+                <th>予約日</th>
+                <td>{{ booking_form_data.booking_date }}</td>
+            </tr>
+            <tr>
+                <th>予約時間</th>
+                <td>{{ booking_form_data.booking_time }}</td>
+            </tr>
+            <tr>
+                <th>予約人数</th>
+                <td>{{ booking_form_data.numbers_of_ppl }}</td>
+            </tr>
+        </table>
+        <button type="submit">予約を確定する</button>
     </form>
 {% endblock %}
