@@ -20,9 +20,9 @@
         <div class="admi_menu_container">     
             <a class="admi_logout_link" href="{% url 'logout' %}">ログアウト</a>
             <nav class="admi_menu">
-                <a href="">基本情報</a>
-                <a href="">店舗情報</a>
-                <a href="">会員情報</a>
+                <a href="{% url 'admi:company_update' pk=1 %}">会社情報編集</a>
+                <a href="{% url 'admi:shop_list' %}">店舗情報</a>
+                <a href="{% url 'admi:user_list' %}">会員情報</a>
                 <a href="">予約情報</a>
                 <a href="">売上管理</a>
             </nav>
@@ -32,7 +32,7 @@
     <!-- フッター -->
     <footer>
         <div>
-            <p><a href="#">会社概要</a></p>
+            <p><a href="{% url 'company' pk=1 %}">会社概要</a></p>
             <p>&copy;NAGOYAMeSHi 2024</p>
         </div>
     </footer>

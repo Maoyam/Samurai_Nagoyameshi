@@ -725,6 +725,11 @@ color: #444444;
 
 }
 
+/* ページリンク */
+.page_paginator {
+    font-size: 0.8rem;
+}
+
 /* フォーム */
 .add_form label:after {
      content: " *必須";
@@ -734,5 +739,9 @@ color: #444444;
 
 .add_form input {
     margin-bottom: 15px;
+}
+
+.add_form .checkbox label::after {
+    content: none;
 }
 

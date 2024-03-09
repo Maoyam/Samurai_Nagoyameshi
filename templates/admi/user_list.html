@@ -1,0 +1,59 @@
+{% extends "base_admi.html" %}
+{% load bootstrap %}
+
+{% block head %}<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+{% endblock %}
+
+{% block title %}会員一覧{% endblock %}
+
+{% block content %}
+<div class="company_info">
+    <h2 class="admi_h2">会員一覧</h2>
+    <table class="table table-hover table-bordered">
+      <thead class="table-secondary">
+        <tr style="text-align: center;">
+          <th>ID</th>
+          <th>ユーザー名</th>
+          <th>属性</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      {% for user in object_list %}
+      <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>
+            {% if user.is_staff %}
+            管理者
+            {% elif user.is_paid_member %}
+            有料会員
+            {% else %}
+            無料会員
+            {% endif %}
+          </td>
+          <td style="text-align: center;">
+            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:edit_user' pk=user.id %}'" style="color: #FFFFFF;">編集</button>
+            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:delete_user' pk=user.id %}'" style="color: #FFFFFF;">削除</button>         
+          </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <!-- ページの表示 -->
+    <div class="page_paginator">
+    {{page_obj.number}} / {{page_obj.paginator.num_pages}} ページ<br>
+
+    <!-- 前へ -->
+    {% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; 先頭</a>
+    <a href="?page={{page_obj.previous_page_number}}">前へ</a>   
+    {% endif %}
+
+    <!-- 次へ -->
+    {% if page_obj.has_next %}
+    <a href="?page={{page_obj.next_page_number}}">次へ </a>
+    <a href="?page={{page_obj.paginator.num_pages}}">最後</a>   
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
