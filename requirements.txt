@@ -4,7 +4,6 @@ pillow==10.2.0
 django-bootstrap-form
 gunicorn==21.2.0
 packaging==23.2
-Pillow==10.1.0
 sqlparse==0.4.4
 typing_extensions==4.9.0
 whitenoise==6.6.0
