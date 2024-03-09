@@ -1,12 +1,12 @@
 from django.urls import reverse_lazy
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from commondb.models.restaurant import Restaurant
 from ..forms import BookingForm
 
-class ReservationConfirmationView(FormView):
+class BookingConfirmationView(FormView):
     template_name = 'general/confirm_booking.html'
     form_class = BookingForm
-    success_url = reverse_lazy('confirm_booking')
+    success_url = reverse_lazy('confirm_complete')
 
     def get_initial(self):
         restaurant_id = self.kwargs.get('restaurant_id')  # URLからrestaurant_idを取得

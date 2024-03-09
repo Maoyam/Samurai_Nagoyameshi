@@ -44,7 +44,7 @@ class ShopTemplatelView(TemplateView):
         form = BookingForm(request.POST)
         if form.is_valid():
         # フォームが有効な場合、確認ページにリダイレクトする
-            return redirect(reverse('confirm_booking', kwargs={'restaurant_id': restaurant_id}))
+            return redirect(reverse('confirm_booking', kwargs={'pk': restaurant_id}))
         else:
             context = self.get_context_data(**kwargs)
             context['form'] = form
