@@ -6,6 +6,7 @@ from .models.review import Review
 from .models.booking import Booking
 from .models.favorite import Favorite
 from .models.company import Company
+from .models.reguration import Reguration
 from django.utils.safestring import mark_safe
 from django.contrib.auth import get_user_model
 
@@ -14,7 +15,11 @@ User = get_user_model()
 
 # 会社概要
 class CompanyAdmin(admin.ModelAdmin):
-    list_display = ('name', 'address', 'established_date', 'capital', 'number_of_staff')    
+    list_display = ('name', 'address', 'established_date', 'capital', 'number_of_staff')
+
+# 会員規約
+class RegurationAdmin(admin.ModelAdmin):
+    list_display = ('name','text')
 
 #エリア 
 class AreaAdmin(admin.ModelAdmin):
@@ -50,6 +55,7 @@ class FavoriteAdmin(admin.ModelAdmin):
     
 admin.site.register(User)
 admin.site.register(Company, CompanyAdmin)
+admin.site.register(Reguration, RegurationAdmin)
 admin.site.register(Area, AreaAdmin)
 admin.site.register(Genre, GenreAdmin)
 admin.site.register(Restaurant, RestaurantAdmin)

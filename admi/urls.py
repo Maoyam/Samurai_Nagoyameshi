@@ -2,6 +2,7 @@ from django.urls import path
 from .views.company_views import CompanyUpdateView
 from .views.a_shop_list_views import AdmiShopListView, AdmiShopCreateView, AdmiShopUpdateView, AdmiShopDeleteView, AdmiShopDetailView
 from .views.a_user_list_views import AdmiUserDeleteView, AdmiUserListView, AdmiUserUpdateView
+from .views.a_reguration_views import RegTemplateView, RegUpdateView
 
 app_name = 'admi'
 urlpatterns = [
@@ -14,4 +15,6 @@ urlpatterns = [
     path('user_list/', AdmiUserListView.as_view(), name="user_list"),
     path('edit_user/<int:pk>/', AdmiUserUpdateView.as_view(), name="edit_user"),
     path('delete_user/<int:pk>', AdmiUserDeleteView.as_view(), name="delete_user"),
+    path('reguration/', RegTemplateView.as_view(), name="reguration"),
+    path('edit_reguration/<int:pk>', RegUpdateView.as_view(), name="edit_reguration"),   
 ]

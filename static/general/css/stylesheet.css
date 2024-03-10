@@ -225,6 +225,8 @@ footer > div {
 footer a {
     text-decoration: underline;
     color: #FFF;
+    padding-left: 7px;
+    padding-right: 7px;
 }
 
 footer > div > p {
@@ -745,3 +747,18 @@ color: #444444;
     content: none;
 }
 
+/* 管理者側　会員規約 */
+.reguration-container {
+    width: 600px;
+    height: auto;
+    min-height: 500px;
+    margin: 50px auto;
+
+}
+
+
+.reguration {
+    border: 0.8px solid #000000;
+    padding: 20px;
+    margin-top: 20px;
+}

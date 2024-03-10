@@ -1,17 +1,19 @@
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 from commondb.models.restaurant import Restaurant
 from commondb.models.review import Review
 from ..forms import BookingForm
 
 
-class ShopTemplatelView(TemplateView):
+class ShopTemplatelView(CreateView):
     model = Restaurant
     #詳細ページのテンプレート名
     template_name = 'general/shop_detail.html'
     # 予約フォーム
     form_class = BookingForm
+    success_url = reverse_lazy('confirm_booking')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
