@@ -60,5 +60,5 @@ urlpatterns = [
     path('reset/done/', PasswordResetComplete.as_view(), name='password_reset_complete'), 
 ]
 
-# MEDIA_URL に対する URL パターンを追加します
+# MEDIA_URL に対する URL パターンを追加
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

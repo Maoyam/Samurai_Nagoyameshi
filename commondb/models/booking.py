@@ -16,3 +16,6 @@ class Booking(models.Model):
     booking_time = models.TimeField(verbose_name="予約時間", default=time(18, 0))
     numbers_of_ppl = models.IntegerField(default=0, verbose_name="予約人数", validators=[MaxValueValidator(8)])
     create_date = models.DateTimeField(auto_now_add=True, verbose_name="作成日時")
+    
+    def __str__(self):
+        return self.restaurant.name

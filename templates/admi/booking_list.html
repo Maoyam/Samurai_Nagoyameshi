@@ -4,30 +4,33 @@
 {% block head %}<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 {% endblock %}
 
-{% block title %}店舗一覧{% endblock %}
+{% block title %}予約一覧{% endblock %}
 
 {% block content %}
 <div class="list_container">
-    <h2 class="admi_h2">店舗一覧</h2>
-    <button class="btn" style="background-color: #F57F00; color: #FFFFFF; float: right; margin-bottom: 5px;" onclick="location.href='{% url 'admi:add_shop' %}'">新規作成</button>
+    <h2 class="admi_h2">予約一覧</h2>
     <table class="table table-hover table-bordered">
       <thead class="table-secondary">
         <tr style="text-align: center;">
           <th>ID</th>
           <th>店名</th>
-          <th>カテゴリ</th>
+          <th>ジャンル</th>
+          <th>予約日</th>
+          <th>予約時間</th>
           <th>操作</th>
         </tr>
       </thead>
-      {% for restaurant in object_list %}
+      {% for booking in object_list %}
       <tr>
-          <td>{{ restaurant.id }}</td>
-          <td>{{ restaurant.name }}</td>
-          <td>{{ restaurant.genre }}</td>
+          <td>{{ booking.id }}</td>
+          <td>{{ booking.restaurant.name }}</td>
+          <td>{{ booking.restaurant.genre.name }}</td>
+          <td>{{ booking.booking_date }}</td>
+          <td>{{ booking.booking_time }}</td>
           <td style="text-align: center;">
-            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:shop_detail' pk=restaurant.id %}'" style="color: #FFFFFF;">詳細</button>
-            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:edit_shop' pk=restaurant.id %}'" style="color: #FFFFFF;">編集</button>
-            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:delete_shop' pk=restaurant.id %}'" style="color: #FFFFFF;">削除</button>         
+            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:booking_detail' pk=booking.id %}'" style="color: #FFFFFF;">詳細</button>
+            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:edit_booking' pk=booking.id %}'" style="color: #FFFFFF;">編集</button>
+            <button class="btn btn-secondary" onclick="location.href='{% url 'admi:delete_booking' pk=booking.id %}'" style="color: #FFFFFF;">削除</button>         
           </td>
       </tr>
       {% endfor %}

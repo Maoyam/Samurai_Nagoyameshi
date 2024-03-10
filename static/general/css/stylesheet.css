@@ -762,3 +762,9 @@ color: #444444;
     padding: 20px;
     margin-top: 20px;
 }
+
+/* 一覧用container */
+.list_container {
+    max-width: 800px;
+    margin: 70px auto;
+}
