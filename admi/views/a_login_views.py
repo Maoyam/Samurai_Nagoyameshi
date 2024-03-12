@@ -10,5 +10,3 @@ class LoginView(LoginView):
      
 class LogoutView(LoginRequiredMixin, LogoutView):
      next_page = reverse_lazy('admi:admi_login')
-
-        

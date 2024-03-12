@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -36,28 +36,18 @@ class ShopTemplatelView(CreateView):
         context['reviews'] = Review.objects.filter(restaurant_id=restaurant_id)
         
         # 予約フォーム
-        restaurant_ = Restaurant.objects.get(pk=restaurant_id)
-        form = BookingForm(initial={'restaurant': restaurant_})  # フォームにrestaurant_idを初期値として設定
+        restaurant_instance = get_object_or_404(Restaurant, pk=restaurant_id)
+        form = BookingForm(initial={'restaurant': restaurant_instance})  # フォームにrestaurant_idを初期値として設定
         context['form'] = form
         return context
 
-    def post(self, request, *args, **kwargs):
+    def form_valid(self, form):
         restaurant_id = self.kwargs.get('pk')
-        form = BookingForm(request.POST)
-        if form.is_valid():
-        # フォームが有効な場合、確認ページにリダイレクトする
-            return redirect(reverse('confirm_booking', kwargs={'pk': restaurant_id}))
-        else:
-            context = self.get_context_data(**kwargs)
-            context['form'] = form
-            return self.render_to_response(context)
+        form.instance.restaurant_id = restaurant_id
+        form.instance.user_id = self.request.user.id
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        restaurant_id = self.kwargs.get('pk')
+        return reverse('confirm_booking', kwargs={'pk': restaurant_id})
         
-        # form = self.form_class(request.POST)
-        # if form.is_valid():
-        #     restaurant = form.cleaned_data['restaurant']
-        #     # 予約フォームが有効な場合、確認ページにリダイレクトする
-        #     return redirect(reverse('confirm_booking', kwargs={'restaurant_id': restaurant.id}))
-        # else:
-        #     context = self.get_context_data(**kwargs)
-        #     context['form'] = form
-        #     return self.render_to_response(context)
