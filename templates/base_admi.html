@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/general/css/stylesheet.css">
+    <link rel="stylesheet" href="/static/css/stylesheet.css">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <title>{% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
@@ -17,8 +17,9 @@
             <h1><a href="{% url 'top' %}"><img src="/static/admi/logo.png" alt="ロゴ"></a></h1>
         </div>
         <!-- ナビゲーション -->
-        <div class="admi_menu_container">     
-            <a class="admi_logout_link" href="{% url 'logout' %}">ログアウト</a>
+        <div class="admi_menu_container">
+            {% if request.user.is_authenticated %}     
+            <a class="admi_logout_link" href="{% url 'admi:admi_logout' %}">ログアウト</a>
             <nav class="admi_menu">
                 <a href="{% url 'admi:company_update' pk=1 %}">会社情報編集</a>
                 <a href="{% url 'admi:shop_list' %}">店舗情報</a>
@@ -27,11 +28,14 @@
                 <a href="{% url 'admi:booking_list' %}">予約情報</a>
                 <a href="">売上管理</a>
             </nav>
+            {% else %}
+            <a class="admi_logout_link" href="{% url 'admi:admi_login' %}">ログイン</a>
+            {% endif %}
         </div>
     </header>
     {% block content %}{% endblock %}
     <!-- フッター -->
-    <footer>
+    <footer class="admi_footer">
         <div>
             <p><a href="{% url 'top' %}" >NAGOYAMeSHi TOPへ</a><a href="{% url 'company' pk=1 %}" >会社概要</a></p>
 

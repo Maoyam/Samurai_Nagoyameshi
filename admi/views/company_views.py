@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import UpdateView
 from commondb.models.company import Company
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class CompanyUpdateView(UpdateView):
     model = Company

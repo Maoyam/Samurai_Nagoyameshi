@@ -52,8 +52,8 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ['restaurant','booking_date', 'booking_time', 'numbers_of_ppl']
         widgets = {
-            'booking_date': forms.DateInput(attrs={'type': 'date'}),
-            'booking_time': forms.TimeInput(attrs={'type': 'time'}),
+            'booking_date': forms.DateInput(attrs={'type': 'date', 'style': 'font-size: 0.9em;'}),
+            'booking_time': forms.TimeInput(attrs={'type': 'time', 'style': 'font-size: 0.9em;'}),
         }
         
     def clean_booking_date(self):
@@ -65,5 +65,5 @@ class BookingForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['numbers_of_ppl'].widget = forms.NumberInput(attrs={'min': 0, 'max': 8})
+        self.fields['numbers_of_ppl'].widget = forms.NumberInput(attrs={'min': 0, 'max': 8,  'style': 'font-size: 0.9em;' })
              

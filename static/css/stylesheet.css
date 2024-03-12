@@ -515,6 +515,7 @@ footer > div > p {
     height: 2.2em;
 }
 
+
 .booking_form button {
     background-color: #F57F00;
     color: #FFF;
@@ -709,7 +710,7 @@ color: #444444;
     display: inline;
     font-size: 20px;
 }
-  /* ヘッダー */
+  /* 管理者 ヘッダー */
 .admi_menu_container {
     display: flex;
     flex-direction: column;
@@ -767,4 +768,9 @@ color: #444444;
 .list_container {
     max-width: 800px;
     margin: 70px auto;
+}
+
+/* 管理者 ヘッダー */
+.admi_footer {
+    background-color: #D9D9D9;
 }

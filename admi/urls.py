@@ -5,11 +5,14 @@ from .views.a_user_list_views import AdmiUserDeleteView, AdmiUserListView, AdmiU
 from .views.a_reguration_views import RegTemplateView, RegUpdateView
 from .views.a_genre_list_views import AdmiGenreListView, AdmiGenreCreateView, AdmiGenreUpdateView, AdmiGenreDeleteView
 from .views.a_booking_list_views import AdmiBookingListView, AdmiBookingDetailView, AdmiBookingUpdateView, AdmiBookingDeleteView
+from .views.a_login_views import LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
 
 app_name = 'admi'
 urlpatterns = [
+    path('login/', LoginView.as_view(), name="admi_login"),
+    path('logout/', LogoutView.as_view(), name="admi_logout"),
     path('company/<int:pk>/', CompanyUpdateView.as_view(), name="company_update"),
     path('shop_list/', AdmiShopListView.as_view(), name="shop_list"),
     path('add_shop/', AdmiShopCreateView.as_view(), name="add_shop"),
