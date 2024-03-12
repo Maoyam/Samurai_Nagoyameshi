@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView, DeleteView
 from commondb.models.user import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class AdmiUserListView(ListView):
     model = User

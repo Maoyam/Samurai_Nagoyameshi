@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import UpdateView
 from commondb.models.reguration import Reguration
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class RegTemplateView(TemplateView):

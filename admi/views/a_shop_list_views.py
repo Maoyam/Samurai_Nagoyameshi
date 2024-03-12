@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from commondb.models.restaurant import Restaurant
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class AdmiShopListView(ListView):
     model = Restaurant

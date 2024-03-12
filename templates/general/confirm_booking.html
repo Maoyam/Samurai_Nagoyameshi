@@ -5,23 +5,26 @@
 {% endblock %}
 
 {% block content %}
+<div class="form_container">
 <h1>予約内容の確認</h1>
+    <table>
+        <tr>
+            <th>予約日</th>
+            <td>{{ booking.booking_date }}</td>
+        </tr>
+        <tr>
+            <th>予約時間</th>
+            <td>{{ booking.booking_time }}</td>
+        </tr>
+        <tr>
+            <th>予約人数</th>
+            <td>{{ booking.numbers_of_ppl }}</td>
+        </tr>
+    </table>
     <form method="post">
         {% csrf_token %}
-        <table>
-            <tr>
-                <th>予約日</th>
-                <td>{{ booking_form_data.booking_date }}</td>
-            </tr>
-            <tr>
-                <th>予約時間</th>
-                <td>{{ booking_form_data.booking_time }}</td>
-            </tr>
-            <tr>
-                <th>予約人数</th>
-                <td>{{ booking_form_data.numbers_of_ppl }}</td>
-            </tr>
-        </table>
-        <button type="submit">予約を確定する</button>
+        <a href={% url 'shop_detail' pk=booking.restaurant.id %}>戻る</a>  
+        <button type="submit" class="btn btn-block" style="background-color: #F57F00; color: #FFFFFF;">確定</button>
     </form>
+</div>
 {% endblock %}
