@@ -23,6 +23,18 @@ button {
     color: white;
 }
 
+.btn_basic {
+    height: auto;
+    width: auto;
+    background-color: #F57F00;
+    color: #FFF;
+    padding: 0.5em 1.3em;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -91,17 +103,20 @@ header {
     height: 80px;
 }
 
-nav {
+header nav {
     padding-right: 15px;
-    padding-bottom: 7px;
     text-align: right;
 }
 
-nav > a {
+header nav > a {
    text-decoration: none; 
    font-size: 0.9em;
    color: #444444;
+   padding: 0;
+}
 
+header nav p {
+    margin-bottom: 5px;
 }
 
 /* ヘッダー右上ボタン */
@@ -332,7 +347,7 @@ footer a {
     background-color: #F57F00;
     color: #FFF;
     position: absolute;
-    right: 100px;
+    right: 1rem;
     top: 25px;
     padding: 10px 20px;
     display: inline-block;
@@ -538,6 +553,16 @@ footer a {
     box-sizing: border-box;
 }
 
+/* 予約完了ページ */
+.com_booking {
+    margin: 40px auto;
+    text-align: center;
+}
+
+.com_booking a {
+    text-decoration: none;
+}
+
 /* 店舗検索一覧 */
 
 .page_title {
@@ -619,7 +644,7 @@ footer a {
 /* マイページ */
 
 .mypg_container {
-    width: 1080px;
+    width: 80vw;
     margin: 50px auto;
     
 }

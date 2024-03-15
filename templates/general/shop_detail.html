@@ -55,8 +55,8 @@
                 {% comment %} 未ログインユーザー＆一般ユーザー {% endcomment %}
                 {% comment %} 後からURLを差し込む {% endcomment %}
                 {% else %}
-                    <a href="" class="btn_rev">
-                        <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く
+                    <a href="{% url 'register' %}" class="btn_rev">
+                        <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く(VIP限定)
                     </a>
                 {% endif %}
             </div>

@@ -4,6 +4,10 @@
 {% endblock %}
 
 {% block content %}
-<h1>予約完了</h1>
+<div class="com_booking">
+    <p>予約が完了しました</p>
+    <a class="btn_basic" href="{% url 'mypage' pk=user.id %}">マイページで確認する</a>
+</div>
+
     
 {% endblock %}
