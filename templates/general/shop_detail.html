@@ -10,7 +10,11 @@
     <div class="shop_info">
         <!-- お気に入りボタン -->
         <button class="btn_fav">
-            <img src="/static/general/images/heart.svg" style="width: 15px; height: 15px;"> お気に入りに登録
+            {% comment %} {% if user.is_authenticated and restaurant.id in user.favorite_restaurants.values_list('restaurant_id', flat=True) %}
+                <img src="/static/general/images/heart.svg" style="width: 15px; height: 15px;"> お気に入りを解除
+            {% else %} {% endcomment %}
+                <img src="/static/general/images/heart.svg" style="width: 15px; height: 15px;"> お気に入りに追加
+            {% comment %} {% endif %} {% endcomment %}
         </button>
         <!-- 店舗情報左 -->
         <div class="shop_info_L">
@@ -97,21 +101,28 @@
                 <p>reservation</p>
                 <h3>このお店を予約</h3>
             </div>
-            <form method="post" class="booking_form">
-                <div>
-                {% if user.is_authenticated %}
-                    {% if user.is_paid_member %}
+            {% if user.is_authenticated %}
+                {% if user.is_paid_member %}
+                <form method="post" class="booking_form">
+                    <div>                
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit">予約する</button>
-                    {% else %}
-                        <p>予約は有料会員限定の機能です。</p>
-                    {% endif %}
+                    </div>
+                </form>
                 {% else %}
-                    <p>予約するにはログインしてください。</p>
-                {% endif %}
+                <div class="booking_n_form">
+                <p>予約はVIP会員限定の機能です。</p>
+                <a class="btn_basic" href="#">VIPになる</a>
                 </div>
-            </form>
+                {% endif %}
+            {% else %}
+                <div class="booking_n_form">
+                <p>予約するにはログインしてください。</p>
+                <a class="btn_basic" href="{% url 'login' %}">ログイン</a>
+                </div>
+            {% endif %}
+            
         </div>
     </div>
     </main>

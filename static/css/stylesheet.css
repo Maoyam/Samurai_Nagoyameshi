@@ -550,7 +550,24 @@ footer a {
     margin-top: 10px;
     margin-bottom: 33px;
     width: 100%;
-    box-sizing: border-box;
+}
+
+/* 有料会以外の予約フォーム表示 */
+.booking_n_form {
+    background-color: #FFFDFB;
+    width: 300px;
+    min-width: 200px;
+    text-align: center;
+    
+}
+
+.booking_n_form p {
+    text-align: center;
+    padding-top: 80px;
+}
+
+.booking_n_form a {
+    margin: 15px 0 90px 0;
 }
 
 /* 予約完了ページ */

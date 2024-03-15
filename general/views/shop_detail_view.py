@@ -1,10 +1,12 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from commondb.models.restaurant import Restaurant
 from commondb.models.review import Review
 from commondb.models.booking import Booking
 from ..forms import BookingForm
+from commondb.models.favorite import Favorite
 
 
 
@@ -42,5 +44,5 @@ class ShopTemplatelView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        restaurant_id = self.kwargs.get('pk')
         return reverse_lazy('complete_booking')
+    
