@@ -4,6 +4,7 @@ from datetime import date, time
 from django.db import models
 from .restaurant import Restaurant
 from .user import User
+from django.urls import reverse
 
 def future_date_validator(value):
     if value <= date.today():
@@ -19,3 +20,6 @@ class Booking(models.Model):
     
     def __str__(self):
         return self.restaurant.name
+    
+    def get_absolute_url(self):
+         return reverse('complete_booking')

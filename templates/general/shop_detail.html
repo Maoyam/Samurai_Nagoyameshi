@@ -97,15 +97,21 @@
                 <p>reservation</p>
                 <h3>このお店を予約</h3>
             </div>
-            
             <form method="post" class="booking_form">
                 <div>
-                    {% csrf_token %} 
-                    {{ form }}
-                    <button type="submit" >予約する</button> 
+                {% if user.is_authenticated %}
+                    {% if user.is_paid_member %}
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">予約する</button>
+                    {% else %}
+                        <p>予約は有料会員限定の機能です。</p>
+                    {% endif %}
+                {% else %}
+                    <p>予約するにはログインしてください。</p>
+                {% endif %}
                 </div>
             </form>
-            
         </div>
     </div>
     </main>

@@ -1,5 +1,4 @@
-from django.shortcuts import get_object_or_404
-from django.urls import reverse
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from commondb.models.restaurant import Restaurant
@@ -10,7 +9,7 @@ from ..forms import BookingForm
 
 
 class ShopTemplatelView(CreateView):
-    model = Restaurant
+    model = Booking
     #詳細ページのテンプレート名
     template_name = 'general/shop_detail.html'
     # 予約フォーム
@@ -27,19 +26,12 @@ class ShopTemplatelView(CreateView):
             context['user_type'] = 'no_member'
         
         # URLから店舗のIDを取得
-        restaurant_id = self.kwargs.get('pk')
-        
+        restaurant_id = self.kwargs.get('pk') 
         #店舗詳細
-        context['restaurant'] = get_object_or_404(Restaurant, pk=restaurant_id)
-            
+        context['restaurant'] = get_object_or_404(Restaurant, pk=restaurant_id)  
         # レビュー
-        # 対象の店舗に関連するレビューを取得
         context['reviews'] = Review.objects.filter(restaurant_id=restaurant_id)
-        
-        # 予約フォーム
-        
-        context['booking'] = Booking.objects.filter(restaurant_id=restaurant_id, user=self.request.user)
-
+        # 店舗名
         context['form'] = BookingForm(initial={'restaurant': restaurant_id})
         return context
 
@@ -51,5 +43,4 @@ class ShopTemplatelView(CreateView):
 
     def get_success_url(self):
         restaurant_id = self.kwargs.get('pk')
-        return reverse('confirm_booking', kwargs={'pk': restaurant_id})
-        
+        return reverse_lazy('complete_booking')

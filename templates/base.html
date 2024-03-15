@@ -22,26 +22,30 @@
         </div>
         <!-- ナビゲーション -->
         {% if request.user.is_authenticated %}
-        <nav> 
-            <span>
-                ようこそ！{{user.get_username}}さん
-            </span>          
+        <nav>
+            <a class="header_btn" href="{% url 'mypage' pk=user.id %}">MYPAGE</a>
             <a class="logout_link" href="{% url 'logout' %}">ログアウト</a>
+            <p>
+                ようこそ！{{user.get_username}}さん
+            </p>          
+
+            </div>
         </nav>
             {% else %}
         <nav> 
             <a href="{% url 'login' %}">ログイン</a>
-            <a href="{% url 'register' %}">新規登録</a>
+            <a class="header_btn" href="{% url 'register' %}">新規登録</a>
         </nav>
         {% endif%}
     </header>
     {% block content %}{% endblock %}
+    
     <!-- フッター -->
     <footer>
-        <div>
+        <nav>
             <p><a href="{% url 'company' pk=1 %}" >会社概要</a><a href="{% url 'reguration' %}" >会員規約</a></p>
             <p>&copy;NAGOYAMeSHi 2024</p>
-        </div>
+        </nav>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

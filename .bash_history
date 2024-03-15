@@ -325,3 +325,21 @@ python manage.py migrate
 python manage.py runserver
 python manage.py runserver
  /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.2.0-linux-arm64/bundled/libs/debugpy/adapter/../../debugpy/launcher 46067 -- /root/manage.py runserver 8080 
+python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+ /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.2.0-linux-arm64/bundled/libs/debugpy/adapter/../../debugpy/launcher 52985 -- /root/manage.py runserver 8080 
+python manage.py runserver
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.2.0-linux-arm64/bundled/libs/debugpy/adapter/../../debugpy/launcher 41675 -- /root/manage.py runserver 8080 
+ cd /root ; /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.2.0-linux-arm64/bundled/libs/debugpy/adapter/../../debugpy/launcher 60777 -- /root/manage.py runserver 8080 
+python manage.py runserver
+ /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.2.0-linux-arm64/bundled/libs/debugpy/adapter/../../debugpy/launcher 35967 -- /root/manage.py runserver 8080 

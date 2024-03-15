@@ -6,8 +6,21 @@
 
 {% block content %}
 <div class="form_container">
-<h1>予約内容の確認</h1>
+    <div class="container">
+        <h2>予約内容の確認</h2>
+        <p>以下の内容で予約を確定しますか？</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">予約する</button>
+        </form>
+    </div>
+{% comment %} <h1>予約内容の確認</h1>
     <table>
+        <tr>
+            <th>予約店舗</th>
+            <td>{{ booking.restaurant }}</td>
+        </tr>
         <tr>
             <th>予約日</th>
             <td>{{ booking.booking_date }}</td>
@@ -23,8 +36,7 @@
     </table>
     <form method="post">
         {% csrf_token %}
-        <a href={% url 'shop_detail' pk=booking.restaurant.id %}>戻る</a>  
         <button type="submit" class="btn btn-block" style="background-color: #F57F00; color: #FFFFFF;">確定</button>
     </form>
-</div>
+</div> {% endcomment %}
 {% endblock %}
