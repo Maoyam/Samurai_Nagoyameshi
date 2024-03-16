@@ -14,7 +14,7 @@
         <!-- ロゴ -->
         <div class="logo-container">
             <p>管理者専用</p>
-            <h1><a href="{% url 'top' %}"><img src="/static/admi/logo.png" alt="ロゴ"></a></h1>
+            <h1><a href="{% url 'admi:admi_login' %}"><img src="/static/admi/logo.png" alt="ロゴ"></a></h1>
         </div>
         <!-- ナビゲーション -->
         <div class="admi_menu_container">
@@ -29,7 +29,9 @@
                 <a href="">売上管理</a>
             </nav>
             {% else %}
+                {% if request.path != '/admi/login/' %}
             <a class="admi_logout_link" href="{% url 'admi:admi_login' %}">ログイン</a>
+                 {% endif %}
             {% endif %}
         </div>
     </header>

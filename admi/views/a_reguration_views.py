@@ -5,10 +5,10 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import UpdateView
 from commondb.models.reguration import Reguration
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.mixins import LoginRequiredMixin
+from ..views.login_permission_view import AdmiRequiredView
 
 
-class RegTemplateView(TemplateView):
+class RegTemplateView(AdmiRequiredView, TemplateView):
     model = Reguration
     template_name = 'admi/reguration.html'
     
@@ -17,7 +17,7 @@ class RegTemplateView(TemplateView):
         context['object'] = get_object_or_404(Reguration, pk=1)
         return context
         
-class RegUpdateView(UpdateView):
+class RegUpdateView(AdmiRequiredView, UpdateView):
     model = Reguration
     template_name = 'admi/edit_reguration.html'
     fields = '__all__'

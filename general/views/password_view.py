@@ -5,14 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from django.urls import reverse_lazy
 
-# class index(LoginRequiredMixin, generic.TemplateView):
-#     """メニュービュー"""
-#     template_name = 'accounts/top.html'
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs) # 継承元のメソッドCALL
-#         context["form_name"] = "top"
-#         return context
 
 
 class PasswordChange(LoginRequiredMixin, PasswordChangeView):
@@ -33,8 +26,8 @@ class PasswordChangeDone(LoginRequiredMixin,PasswordChangeDoneView):
 # --- ここから追加
 class PasswordReset(PasswordResetView):
     """パスワード変更用URLの送付ページ"""
-    subject_template_name = 'general/mail_template/reset/subject.txt'
-    email_template_name = 'general/mail_template/reset/message.txt'
+    subject_template_name = 'general/mail_template/subject.txt'
+    email_template_name = 'general/mail_template/message.txt'
     template_name = 'general/password_reset_form.html'
     success_url = reverse_lazy('password_reset_done')
 
@@ -48,6 +41,7 @@ class PasswordResetConfirm(PasswordResetConfirmView):
     """新パスワード入力ページ"""
     success_url = reverse_lazy('password_reset_complete')
     template_name = 'general/password_reset_confirm.html'
+    post_reset_login = True
 
 
 class PasswordResetComplete(PasswordResetCompleteView):

@@ -33,8 +33,11 @@
         </nav>
             {% else %}
         <nav> 
+            {% if request.path != '/general/login/' %}
             <a href="{% url 'login' %}">ログイン</a>
+            {% endif %}
             <a class="header_btn" href="{% url 'register' %}">新規登録</a>
+            
         </nav>
         {% endif%}
     </header>

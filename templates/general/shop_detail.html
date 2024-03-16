@@ -52,6 +52,7 @@
                     <p>review</p>
                 </div>
                 {% comment %} 有料ユーザー {% endcomment %}
+                
                 {% if user_type == 'is_paid' %}
                     <a href="{% url 'submit_review' restaurant_id=restaurant.id %}" class="btn_rev">
                         <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く
