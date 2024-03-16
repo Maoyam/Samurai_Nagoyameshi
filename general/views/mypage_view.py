@@ -6,6 +6,7 @@ from commondb.models.favorite import Favorite
 from commondb.models.user import User
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 
 class MypageView(LoginRequiredMixin, TemplateView):
     template_name = "general/mypage.html"
@@ -15,6 +16,11 @@ class MypageView(LoginRequiredMixin, TemplateView):
         
         # ログイン中のユーザーのIDを取得
         user_id = self.request.user.id
+        
+        mypage_id = kwargs.get('pk')
+        # ログイン中のユーザーのIDとマイページのPKが一致しない場合はエラーを返す
+        if user_id != mypage_id:
+            raise PermissionDenied("このページの閲覧権限がありません")
         
         # 現在の日付を取得
         current_date = datetime.date.today()
