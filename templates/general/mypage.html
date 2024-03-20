@@ -24,7 +24,7 @@
               <td>{{booking.numbers_of_ppl}}</td>
               <td>{{booking.restaurant}}</td>
               
-              <td><a href="#">店舗詳細を見る</a></td>
+              <td><button class="btn_basic" onclick="location.href='{% url 'mypage_booking_delete' pk=booking.id %}'" style="color: #000; background-color: #D9D9D9;">キャンセル</button> </td>
           </tr>
           {% endfor %}
       </tbody>
@@ -51,7 +51,7 @@
               <!-- ここにループ処理を追加 -->  
               <td>{{favorite.restaurant}}</td>
               <td>{{favorite.restaurant.genre.name}}</td>
-              <td><a href="#">詳細を見る</a></td>
+              <td><button class="btn_basic" onclick="location.href='{% url 'shop_detail' pk=favorite.restaurant.id %}'" style="color: #000; background-color: #D9D9D9;">詳細を見る</button> </td>
               </tr>
               {% endfor %}
               <!-- ループ終了 -->
@@ -67,7 +67,7 @@
           <thead>
               <tr>
                   <th>店舗名</th>
-                  <th>訪問日</th>
+                  <th>評価</th>
                   <th></th>
               </tr>
           </thead>
@@ -77,8 +77,15 @@
               <tr>
                 
                 <td>{{review.restaurant}}</td>
-                <td>{{review.visit_date}}</td>
-                <td><a href="#">詳細を見る</a></td>
+                <td>
+                  {% for i in "★★★★★" %}
+                      {% if forloop.counter <= review.rating %}
+                          {{ i }}
+                      {% endif %}
+                  {% endfor %}
+              </td>
+                <td><button class="btn_basic" onclick="location.href='{% url 'mypage_review_detail' pk=review.id %}'" style="color: #000; background-color: #D9D9D9;">詳細を見る</button> </td>
+              </tr>
                 
               </tr>
               {% endfor %}
@@ -110,7 +117,7 @@
               <td>{{pbooking.numbers_of_ppl}}</td>
               <td>{{pbooking.restaurant}}</td>
               
-              <td><a href="#">店舗詳細を見る</a></td>
+              <td><button class="btn_basic" onclick="location.href='{% url 'shop_detail' pk=pbooking.restaurant.id %}'" style="color: #000; background-color: #D9D9D9;">詳細を見る</button></td>
           </tr>
           {% endfor %}
           <!-- ループ終了 -->

@@ -24,13 +24,15 @@ from general.views.logout import LogoutView
 from general.views.shop_detail_view import ShopTemplatelView
 from general.views.booking_confirm_view import BookingCompleteView
 from general.views.shop_list_view import SearchView, GenreFilterView, AreaFilterView
-from general.views.review_view import SubmitReviewView, ReviewConfirmationView
-from general.views.mypage_view import MypageView
+from general.views.review_view import SubmitReviewView, ReviewConfirmationView, ReviewUpdateView
+from general.views.mypage_view import MypageView, MypageBookingDeleteView, MypageReviewDetailView
 from general.views.user_update_view import UserUpdateView
 from general.views.user_register_view import RegisterView
 from general.views.company_view import CompanyDetailView
 from general.views.reguration_views import RegTemplateView
-from general.views.password_view import PasswordChange, PasswordChangeDone, PasswordReset, PasswordResetDone, PasswordResetConfirm, PasswordResetComplete
+from general.views.password_view import PasswordChange, PasswordChangeDone
+from general.views.upgrade_view import UpgradeTemplateView
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -47,16 +49,20 @@ urlpatterns = [
     path('general/submit_review/<int:restaurant_id>/', SubmitReviewView.as_view(), name="submit_review"),
     path('general/review_confirmation/<int:restaurant_id>/', ReviewConfirmationView.as_view(), name="review_confirmation"), 
     path('general/mypage/<int:pk>/', MypageView.as_view(), name='mypage'),
+    path('general/mypage_booking_delete/<int:pk>/',MypageBookingDeleteView.as_view(), name="mypage_booking_delete"),
+    path('general/mypage_review_detail/<int:pk>/', MypageReviewDetailView.as_view(), name="mypage_review_detail"),
+    path('general/review_update/<int:pk>/', ReviewUpdateView.as_view(), name="review_update"),
     path('general/register/', RegisterView.as_view(), name="register"),
     path('general/user_update/<int:pk>/', UserUpdateView.as_view(), name="user_update"),
     path('general/company/<int:pk>/', CompanyDetailView.as_view(), name="company"),
     path('general/reguration/', RegTemplateView.as_view(), name="reguration"),
     path('password_change/', PasswordChange.as_view(), name='password_change'),
     path('password_change/done/', PasswordChangeDone.as_view(), name='password_change_done'),
-    path('password_reset/', PasswordReset.as_view(), name='password_reset'), 
-    path('password_reset/done/', PasswordResetDone.as_view(), name='password_reset_done'), 
-    path('reset/<uidb64>/<token>/', PasswordResetConfirm.as_view(), name='password_reset_confirm'), 
-    path('reset/done/', PasswordResetComplete.as_view(), name='password_reset_complete'), 
+    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'), 
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('general/upgrade/', UpgradeTemplateView.as_view(), name="upgrade")
 ]
 
 # MEDIA_URL に対する URL パターンを追加
