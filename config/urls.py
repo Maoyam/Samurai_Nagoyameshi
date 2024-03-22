@@ -33,6 +33,7 @@ from general.views.reguration_views import RegTemplateView
 from general.views.password_view import PasswordChange, PasswordChangeDone
 from general.views.upgrade_view import UpgradeTemplateView
 from django.contrib.auth import views as auth_views
+from general.views.user_delete_views import UserDeleteView
 
 
 urlpatterns = [
@@ -54,6 +55,7 @@ urlpatterns = [
     path('general/review_update/<int:pk>/', ReviewUpdateView.as_view(), name="review_update"),
     path('general/register/', RegisterView.as_view(), name="register"),
     path('general/user_update/<int:pk>/', UserUpdateView.as_view(), name="user_update"),
+    path('general/user_delete/<int:pk>/', UserDeleteView.as_view(), name="user_delete"),
     path('general/company/<int:pk>/', CompanyDetailView.as_view(), name="company"),
     path('general/reguration/', RegTemplateView.as_view(), name="reguration"),
     path('password_change/', PasswordChange.as_view(), name='password_change'),

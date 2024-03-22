@@ -7,12 +7,16 @@
 {% block title %}新規登録{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2>新規アカウント登録</h2>
-    <form method="post" class="form_container mt-5">
+<div class="register mt-5">
+  <h2>新規アカウント登録</h2>
+  <div class="form-container">
+    <form method="post" class="mt-5">
       {% csrf_token %}
       {{ form|bootstrap }}
-      <button type="submit" class="btn btn-primary" style="background-color: #F57F00; color: #FFFFFF;">登録</button>
+      <div class="mt-3">
+        <button type="submit" class="btn btn-block float_r_button" style="background-color: #F57F00; color: #FFFFFF;">登録</button>
+      </div>
     </form>
   </div>
+</div>
 {% endblock %}

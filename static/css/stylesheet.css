@@ -18,7 +18,7 @@ li {
     list-style: none;
 }
 
-button {
+.button {
     background-color: #F57F00; 
     color: white;
 }
@@ -661,7 +661,7 @@ footer a {
 /* マイページ */
 
 .mypg_container {
-    width: 85vw;
+    width: 80vw;
     margin: 50px auto;
     
 }
@@ -734,8 +734,10 @@ footer a {
 }
 .mypg_user_info_container {
     display: flex;
+    flex-wrap: wrap;
+    gap:5px 0;
     justify-content: left;
-    width: 70%;
+    width: 100%;
 }
 
 .mypg_user_info_item{
@@ -744,9 +746,12 @@ footer a {
     border-radius: 5px;
     height: auto;
     width: auto;
+    min-width: 145px;
     padding: 10px 20px;
     margin-top: 10px;
-    margin-right: 1.5em;
+    margin-right: 1em;
+    text-align: center;
+
 
 }
 
@@ -754,6 +759,51 @@ footer a {
 font-size: 0.9em;
 color: #444444;
 }
+
+/* パスワード */
+.password {
+    padding: 30px 0;
+}
+.password button{
+    margin: 10px 0 0 7px;
+
+}
+
+/* フォームのスタイル */
+ .form_container {
+    max-width: 400px;
+    margin: auto;
+}
+
+/* 入力欄の枠 */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+/* エラーメッセージ */
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875rem;
+    color: #dc3545;
+}
+/* 新規アカウント登録 */
+.register {
+    width: 60vw;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 30px;
+}
+.register h2 {
+    text-align: center;
+}
+
+.float_r_button {
+    float: right;
+}
+
 
 /* 有料会員誘導ページ */
 .upgrade_container {

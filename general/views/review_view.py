@@ -6,8 +6,11 @@ from general.forms import ReviewForm
 from commondb.models.restaurant import Restaurant
 from general.forms import Review
 from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
-class SubmitReviewView(View):
+class SubmitReviewView(LoginRequiredMixin, View):
     def get(self, request, restaurant_id):
         restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
         form = ReviewForm()
@@ -26,7 +29,7 @@ class SubmitReviewView(View):
             return redirect('top')
         return render(request, 'general/submit_review.html', {'form': form, 'restaurant': restaurant})
 
-class ReviewConfirmationView(View):
+class ReviewConfirmationView(LoginRequiredMixin, View):
     def get(self, request):
         restaurant_id = request.session.get('restaurant_id')  # レビュー投稿で設定されたrestaurant_idをセッションから取得
         if not restaurant_id:
@@ -34,10 +37,27 @@ class ReviewConfirmationView(View):
             return HttpResponse("Error: restaurant_id is missing")
         return render(request, 'general/review_confirmation.html', {'restaurant_id': restaurant_id})
     
-class ReviewUpdateView(UpdateView):
+class ReviewUpdateView(LoginRequiredMixin, UpdateView):
     model = Review
     template_name = 'general/review_update.html'
     fields = ['rating', 'comment', 'image1', 'image2', 'image3']
+    
+    def form_valid(self, form):
+        # フォームが有効な場合は保存する前に画像を処理する
+        review = form.save(commit=False)
+        review.user = self.request.user  # ログインユーザーを設定する場合
+
+        # 画像フィールドをチェックし、ファイルがアップロードされているか確認する
+        if 'image1' in self.request.FILES:
+            review.image1 = self.request.FILES['image1']
+        if 'image2' in self.request.FILES:
+            review.image2 = self.request.FILES['image2']
+        if 'image3' in self.request.FILES:
+            review.image3 = self.request.FILES['image3']
+
+        # レビューを保存
+        review.save()
+        return HttpResponseRedirect(reverse('mypage_review_detail', kwargs={'pk': review.pk}))
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)

@@ -20,6 +20,11 @@
         <div class="shop_info_L">
             <p>{{restaurant.name_alphabet}}</p>
             <span><h1>{{restaurant.name}}</h1></span>
+            {% if average_rating_stars %}
+            <div class="stars">
+            {{ average_rating_stars|safe }}
+            </div>
+            {% endif %}
             <div>
                 <img src="{{restaurant.image.url}}" alt="店舗イメージ">
             </div>
@@ -52,13 +57,18 @@
                     <p>review</p>
                 </div>
                 {% comment %} 有料ユーザー {% endcomment %}
-                
-                {% if user_type == 'is_paid' %}
-                    <a href="{% url 'submit_review' restaurant_id=restaurant.id %}" class="btn_rev">
-                        <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く
-                    </a>
-                {% comment %} 未ログインユーザー＆一般ユーザー {% endcomment %}
-                {% comment %} 後からURLを差し込む {% endcomment %}
+                {% if user.is_authenticated %}
+                    {% if user_type == 'is_paid' %}
+                        <a href="{% url 'submit_review' restaurant_id=restaurant.id %}" class="btn_rev">
+                            <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く
+                        </a>
+                    {% comment %} 未ログインユーザー＆一般ユーザー {% endcomment %}
+                    {% comment %} 後からURLを差し込む {% endcomment %}
+                    {% else  %}
+                        <a href="{% url 'upgrade' %}" class="btn_rev">
+                            <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く(VIP限定)
+                        </a>
+                    {% endif %}
                 {% else %}
                     <a href="{% url 'register' %}" class="btn_rev">
                         <img class="icon" src="/static/general/images/pen.svg" style="width: 15px; height: 15px;">レビューを書く(VIP限定)

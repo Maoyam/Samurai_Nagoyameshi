@@ -3,19 +3,16 @@ from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from django.urls import reverse_lazy
+from ..forms import MyPasswordChangeForm
 
 
 
 
 class PasswordChange(LoginRequiredMixin, PasswordChangeView):
     """パスワード変更ビュー"""
+    form_class = MyPasswordChangeForm
     success_url = reverse_lazy('password_change_done')
     template_name = 'general/password_change.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs) # 継承元のメソッドCALL
-        context["form_name"] = "password_change"
-        return context
 
 
 class PasswordChangeDone(LoginRequiredMixin,PasswordChangeDoneView):

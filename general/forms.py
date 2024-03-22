@@ -5,6 +5,10 @@ from commondb.models.review import Review
 from commondb.models.user import User
 from commondb.models.booking import Booking
 from django.contrib.auth.forms import UserCreationForm
+from django import forms
+from django.contrib.auth.forms import ( UserCreationForm, PasswordChangeForm
+)
+from django.contrib.auth import get_user_model
 
 class ReviewForm(forms.ModelForm):
     
@@ -66,4 +70,13 @@ class BookingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['numbers_of_ppl'].widget = forms.NumberInput(attrs={'min': 0, 'max': 8,  'style': 'font-size: 0.9em;' })
+        
+
+class MyPasswordChangeForm(PasswordChangeForm):
+    """パスワード変更フォーム"""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
              

@@ -7,7 +7,7 @@
 {% block title %}レビュー詳細{% endblock %}
 
 {% block content %}
-<div class="company_info">
+<div class="company_info text-center">
     <h2 class="admi_h2">レビュー詳細</h2>
     <table class="table table-bordered">
         <tr>
@@ -36,18 +36,18 @@
             <td>画像</td>
             <td>
             {% if review.image1 %}
-            <img src="{{review.image1.url}}" alt="" >
+            <img src="{{review.image1.url}}" class="img-fluid">
             {% endif %}
             {% if review.image2 %}
-            <img src="{{review.image2.url}}" alt="">
+            <img src="{{review.image2.url}}" class="img-fluid">
             {% endif %}
             {% if review.image3 %}
-            <img src="{{review.image3.url}}" alt="">
+            <img src="{{review.image3.url}}" class="img-fluid">
             {% endif %}
             </td>
         </tr>
     </table>
-    <a href={% url 'mypage' pk=user_id %}>戻る</a>
-    <a href={% url 'review_update' pk=review_id %} class="btn btn-primary" style="background-color: #F57F00; color: #FFFFFF; float: right;">編集</a>
+    <a href={% url 'mypage' pk=user_id %} style="float: left;">戻る</a>
+    <a href={% url 'review_update' pk=review_id %} class="btn" style="background-color: #F57F00; color: #FFFFFF; float: right;">編集</a>
 </div>
 {% endblock %}

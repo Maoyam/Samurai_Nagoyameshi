@@ -130,8 +130,11 @@
       <ul class="mypg_user_info_container">
         <li class="mypg_user_info_item"><a href="{% url 'user_update' pk=user.pk %}">会員情報編集</a></li>
         <li class="mypg_user_info_item"><a href="{% url 'password_change' %}">パスワード変更</a></li>
+        {% if user.is_paid_member %}
         <li class="mypg_user_info_item"><a href="">有料会員停止</a></li>
-        <li class="mypg_user_info_item"><a href="">会員退会</a></li>     
+        {% endif %}
+        <li class="mypg_user_info_item"><a href="{% url 'upgrade' %}">VIP会員に登録する</a></li>
+        <li class="mypg_user_info_item"><a href="{% url 'user_delete' pk=user.pk %}">会員退会</a></li>     
       </ul>
     </div>
   </div>

@@ -29,10 +29,21 @@ class ShopTemplatelView(CreateView):
         
         # URLから店舗のIDを取得
         restaurant_id = self.kwargs.get('pk') 
-        #店舗詳細
-        context['restaurant'] = get_object_or_404(Restaurant, pk=restaurant_id)  
+        # 店舗詳細
+        restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
+        context['restaurant'] = restaurant
         # レビュー
-        context['reviews'] = Review.objects.filter(restaurant_id=restaurant_id)
+        reviews = Review.objects.filter(restaurant_id=restaurant_id)
+        context['reviews'] = reviews
+        # 平均評価
+        if reviews:
+            average_rating = sum(review.rating for review in reviews) / len(reviews)
+            context['average_rating'] = round(average_rating, 1)
+            context['average_rating_stars'] = '<span style="color: #F57F00;">★</span>' * int(average_rating)
+        else:
+            context['average_rating'] = None
+            context['average_rating_stars'] = None
+        
         # 店舗名
         context['form'] = BookingForm(initial={'restaurant': restaurant_id})
         return context
@@ -45,4 +56,3 @@ class ShopTemplatelView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('complete_booking')
-    

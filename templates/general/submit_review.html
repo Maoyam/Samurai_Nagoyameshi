@@ -10,7 +10,7 @@
       <h1>店舗レビュー</h1>
     </div>
     <div>
-      <p>店名:{{ restaurant.restaurant }}</p>
+      <p>店名:{{ restaurant.name }}</p>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="id_visit_date">訪問日：</label>{{ form.visit_date }}
@@ -31,6 +31,7 @@
           <input type="file" class="form-control" id="id_image3" name="image3" accept="image/*" onchange="previewImage(event, 'imagePreview3')">
           <img id="imagePreview3" src="#" alt="Image Preview" style="display: none; max-width: 200px; max-height: 200px;">
       </div>
+        <button type="button" class="btn"  onClick="javascript:history.go(-1);">戻る</button>
         <button type="submit" style="background-color: #F57F00; color: white;" class="btn review_submit_btn">送信</button>
       </form>
     </div>
