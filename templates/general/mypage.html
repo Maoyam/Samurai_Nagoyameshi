@@ -133,7 +133,11 @@
         {% if user.is_paid_member %}
         <li class="mypg_user_info_item"><a href="">有料会員停止</a></li>
         {% endif %}
-        <li class="mypg_user_info_item"><a href="{% url 'upgrade' %}">VIP会員に登録する</a></li>
+        {% if user.is_authenticated %}
+          {% if not user.is_paid_member %}
+          <li class="mypg_user_info_item"><a href="{% url 'upgrade' %}">VIP会員に登録する</a></li>
+          {% endif %}
+        {% endif %}
         <li class="mypg_user_info_item"><a href="{% url 'user_delete' pk=user.pk %}">会員退会</a></li>     
       </ul>
     </div>

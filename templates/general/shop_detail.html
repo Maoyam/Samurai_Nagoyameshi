@@ -7,14 +7,14 @@
     {% block content %}
     <main>
     <!-- 店舗情報 -->
-    <div class="shop_info">
+    <div class="shop_info" id="fav-toggle">
         <!-- お気に入りボタン -->
-        <button class="btn_fav">
-            {% comment %} {% if user.is_authenticated and restaurant.id in user.favorite_restaurants.values_list('restaurant_id', flat=True) %}
-                <img src="/static/general/images/heart.svg" style="width: 15px; height: 15px;"> お気に入りを解除
-            {% else %} {% endcomment %}
-                <img src="/static/general/images/heart.svg" style="width: 15px; height: 15px;"> お気に入りに追加
-            {% comment %} {% endif %} {% endcomment %}
+        <button class="btn_fav" id="favorite-button" data-restaurant-id="{{ restaurant.id }}" {% if is_favorite %}data-favorite="true"{% endif %}>
+            {% if is_favorite %}
+                <img src="/static/general/images/favorite_black_24dp.svg" style="width: 15px; height: 15px;"> お気に入りを解除
+            {% else %} 
+                <img src="/static/general/images/favorite_border_black_24dp.svg" style="width: 15px; height: 15px;"> お気に入りに追加
+            {% endif %}
         </button>
         <!-- 店舗情報左 -->
         <div class="shop_info_L">
@@ -124,7 +124,7 @@
                 {% else %}
                 <div class="booking_n_form">
                 <p>予約はVIP会員限定の機能です。</p>
-                <a class="btn_basic" href="#">VIPになる</a>
+                <a class="btn_basic" href="{% url 'upgrade' %}">VIPになる</a>
                 </div>
                 {% endif %}
             {% else %}

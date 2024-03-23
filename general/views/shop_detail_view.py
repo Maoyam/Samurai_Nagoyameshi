@@ -1,13 +1,12 @@
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, View
 from commondb.models.restaurant import Restaurant
 from commondb.models.review import Review
 from commondb.models.booking import Booking
 from ..forms import BookingForm
 from commondb.models.favorite import Favorite
-
 
 
 class ShopTemplatelView(CreateView):
@@ -43,10 +42,17 @@ class ShopTemplatelView(CreateView):
         else:
             context['average_rating'] = None
             context['average_rating_stars'] = None
+            
+        # お気に入り情報
+        context['is_favorite'] = False
+        if self.request.user.is_authenticated:
+            if Favorite.objects.filter(user=self.request.user, restaurant=restaurant).exists():
+                context['is_favorite'] = True
         
         # 店舗名
         context['form'] = BookingForm(initial={'restaurant': restaurant_id})
         return context
+
 
     def form_valid(self, form):
         restaurant_id = self.kwargs.get('pk')
@@ -56,3 +62,18 @@ class ShopTemplatelView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('complete_booking')
+    
+class FavoriteToggleView(View):    
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        restaurant_id = kwargs.get('pk')
+        
+        if user.is_authenticated:
+            restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
+            favorite, created = Favorite.objects.get_or_create(user=user, restaurant=restaurant)
+            if not created:
+                favorite.delete()
+            
+            return JsonResponse({'status': 'success'})
+        else:
+            return JsonResponse({'status': 'error', 'message': '会員限定の機能です。ログインしてください。'})

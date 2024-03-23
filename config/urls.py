@@ -21,7 +21,7 @@ from django.urls import include, path
 from general.views.top_view import TopView
 from general.views.login import LoginView
 from general.views.logout import LogoutView
-from general.views.shop_detail_view import ShopTemplatelView
+from general.views.shop_detail_view import ShopTemplatelView, FavoriteToggleView
 from general.views.booking_confirm_view import BookingCompleteView
 from general.views.shop_list_view import SearchView, GenreFilterView, AreaFilterView
 from general.views.review_view import SubmitReviewView, ReviewConfirmationView, ReviewUpdateView
@@ -43,6 +43,7 @@ urlpatterns = [
     path('general/login/', LoginView.as_view(), name="login"),
     path('general/logout/', LogoutView.as_view(), name="logout"),
     path('general/shop_detail/<int:pk>/', ShopTemplatelView.as_view(), name="shop_detail"),
+    path('favorite_toggle/<int:pk>/', FavoriteToggleView.as_view(), name='favorite_toggle'),
     path('general/booking_complete/', BookingCompleteView.as_view(), name="complete_booking"),
     path('general/shop_list_search/', SearchView.as_view(), name="search"),
     path('general/filter/genre/<int:genre>/', GenreFilterView.as_view(), name="shop_list_genre"),

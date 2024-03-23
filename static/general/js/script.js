@@ -1,37 +1,42 @@
 $(function () {
     // カルーセル
-   $('.carousel').slick({
-    autoplay: true,
-    dots: true,
-    infinite: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-  });
+    $('.carousel').slick({
+        autoplay: true,
+        dots: true,
+        infinite: true,
+        autoplaySpeed: 5000,
+        arrows: false,
+    });
 
-   // お気に入りボタンのクリック処理
-   $(function () {
     // お気に入りボタンのクリック処理
-    $('.favorite-button').on('click', function (e) {
-        e.preventDefault(); // デフォルトのクリックイベントをキャンセル
-        let restaurantId = $(this).data('restaurant-id'); // お気に入りに追加する店舗のIDを取得
-        let button = $(this); // ボタン要素をキャッシュ
+    $('#favorite-button').click(function () {
+        const isFavorite = $(this).data('favorite') === 'true'; 
+        const restaurantId = $(this).data('restaurantId'); 
 
-        // AJAXリクエストを使用してお気に入りを切り替える
+        const url = `/favorite_toggle/${restaurantId}`;
+
         $.ajax({
+            url: url,
             type: 'POST',
-            url: '/toggle_favorite/' + restaurantId + '/', // お気に入りボタンのURL
             data: {
-                'csrfmiddlewaretoken': '{{ csrf_token }}', // CSRFトークンを送信
+                csrfmiddlewaretoken: '{{ csrf_token }}',
             },
-            success: function (response) {
-                // ボタンの表示を切り替える
-                button.toggleClass('active');
-            },
+            success: function (data) {
+                if (data.status === 'success') {
+                    // お気に入りの状態をトグルするためのロジック
+                    $(this).data('favorite', String(!isFavorite)); // 文字列に変換してから反転
+                    if (isFavorite) {
+                        $(this).html('<img src="/static/general/images/favorite_border_black_24dp.svg" style="width: 15px; height: 15px;"> お気に入りに追加');
+                    } else {
+                        $(this).html('<img src="/static/general/images/favorite_black_24dp.svg" style="width: 15px; height: 15px;"> お気に入りを解除');
+                    }
+                } else {
+                    alert(data.message);
+                }
+            }.bind(this),
             error: function (xhr, status, error) {
-                // エラー処理
-                console.error(xhr.responseText);
+                console.error('Error:', error);
             }
         });
     });
-});
 });
