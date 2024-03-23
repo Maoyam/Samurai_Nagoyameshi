@@ -13,7 +13,7 @@ $(function () {
         const isFavorite = $(this).data('favorite') === 'true'; 
         const restaurantId = $(this).data('restaurantId'); 
 
-        const url = `/favorite_toggle/${restaurantId}`;
+        const url = `/favorite_toggle/${restaurantId}/`;
 
         $.ajax({
             url: url,
