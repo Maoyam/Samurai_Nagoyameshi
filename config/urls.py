@@ -31,9 +31,9 @@ from general.views.user_register_view import RegisterView
 from general.views.company_view import CompanyDetailView
 from general.views.reguration_views import RegTemplateView
 from general.views.password_view import PasswordChange, PasswordChangeDone
-from general.views.upgrade_view import UpgradeTemplateView
 from django.contrib.auth import views as auth_views
 from general.views.user_delete_views import UserDeleteView
+from general.views import checkout_view
 
 
 urlpatterns = [
@@ -65,7 +65,12 @@ urlpatterns = [
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
-    path('general/upgrade/', UpgradeTemplateView.as_view(), name="upgrade")
+    path('payment_checkout/', checkout_view.create_checkout_session, name="payment_checkout"),
+    path('payment_successful/', checkout_view.create_checkout_session, name="payment_successful"),
+    path('payment_cancelled', checkout_view.create_checkout_session, name="payment_cancelled"),
+    path('create-checkout-session', checkout_view.customer_portal, name="payment_checkout"),
+    path('stripe_webhook', checkout_view.webhook, name="stripe_webhook"),
+    
 ]
 
 # MEDIA_URL に対する URL パターンを追加

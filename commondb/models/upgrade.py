@@ -1,11 +1,15 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.dispatch import receiver
+from commondb.models.user import User
+from django.db.models.signals import post_save
 
-class User(AbstractUser):
-    is_paid_member = models.BooleanField(verbose_name='有料会員', default=False)
-    is_manage_member = models.BooleanField(verbose_name='管理者', default=False)
+class Upgrade(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    payment_bool = models.BooleanField(default=False)
+    stripe_checkout_id = models.CharField(max_length=500)
     
-    class Meta:
-        verbose_name = 'ユーザー'
-        verbose_name_plural = 'ユーザー一覧'  
+@receiver(post_save, sender=User)
+def create_user_payment(sender, instance, created, **kwards):
+    if created:
+        Userpayment.object.create(user=instance)
         

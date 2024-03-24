@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block title %}VIP会員お支払い{% endblock %}
+
+{% block content %}
+<form action="/create-checkout-session" method="POST">
+  {% csrf_token %}
+  <!-- Add a hidden field with the lookup_key of your Price -->
+  <input type="hidden" name="lookup_key" value="vip_subscription" />
+  <button class="btn btn-primary" id="checkout-and-portal-button" type="submit">Checkout</button>
+</form>
+{% endblock %}
