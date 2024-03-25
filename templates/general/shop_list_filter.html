@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load custom_filters %}
 
 {% block title %}店舗一覧{% endblock title %}
 </head>
@@ -13,6 +14,11 @@
                 <div class="shop_item">
                     <div>
                         <img src="{{restaurant.image.url}}" alt="{{restaurant.name}}">
+                        {% if average_rating_stars %}
+                        <div class="stars">
+                        {{ average_rating_stars|safe }}
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="shop_item_text">
                         <h2>{{restaurant.name}}</h2>
@@ -22,6 +28,24 @@
                 </div>
             </a>
             {% endfor %}
+        </div>
+        <!-- ページネーションリンク -->
+        <div class="pagination">
+            <span class="step-links">
+                {% if restaurants.has_previous %}
+                    <a href="?page=1" class="pagination-link">&laquo; 最初へ</a>
+                    <a href="?page={{ restaurants.previous_page_number }}" class="pagination-link">前へ</a>
+                {% endif %}
+
+                <span class="current">
+                    ページ {{ restaurants.number }} / {{ restaurants.paginator.num_pages }}.
+                </span>
+
+                {% if restaurants.has_next %}
+                    <a href="?page={{ restaurants.next_page_number }}" class="pagination-link">次へ</a>
+                    <a href="?page={{ restaurants.paginator.num_pages }}" class="pagination-link">最後へ &raquo;</a>
+                {% endif %}
+            </span>
         </div>
     </main>
     {% endblock content %}

@@ -344,3 +344,29 @@ python manage.py runserver
 python manage.py runserver
  /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.2.0-linux-arm64/bundled/libs/debugpy/adapter/../../debugpy/launcher 35967 -- /root/manage.py runserver 8080 
 /usr/local/bin/python3
+print env
+printenv
+python manage.py runserver
+pip install boto3
+pip install django-storages
+python manage.py runserver
+pip install whitenoise
+python manage.py runserver
+python manage.py runserver
+pip install stripe
+stripe -virsion
+strip -version
+stripe version
+stripe --version
+pip install dj-stripe
+python manage.py makemigrations
+python manage.py makemigrations
+python manage.py makemigrations
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+ /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.2.0-linux-arm64/bundled/libs/debugpy/adapter/../../debugpy/launcher 60589 -- /root/manage.py runserver 8080 

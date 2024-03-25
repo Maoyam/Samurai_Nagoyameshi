@@ -51,11 +51,13 @@
                         
                     {% endfor %}
                 </div>
+                <div class="genre-noimages">
                     {% for genre in genres %}
                         {% if not genre.image %}
-                            <p class="text-link"><span><a href="{% url 'shop_list_genre' genre.pk %}">{{genre.name}}</a></span></p>
+                            <p class="text-link"><a href="{% url 'shop_list_genre' genre.pk %}">{{genre.name}}</a></p>
                         {% endif %}
                     {% endfor %}
+                </div>
             </div>
         </div>
     </main>
