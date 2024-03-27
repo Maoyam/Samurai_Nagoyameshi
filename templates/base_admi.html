@@ -20,13 +20,30 @@
         <div class="admi_menu_container">
             {% if request.user.is_authenticated %}     
             <a class="admi_logout_link" href="{% url 'admi:admi_logout' %}">ログアウト</a>
-            <nav class="admi_menu">
+            <nav class="admi_menu" id="nav-pc">
                 <a href="{% url 'admi:company_update' pk=1 %}">会社情報編集</a>
                 <a href="{% url 'admi:shop_list' %}">店舗情報</a>
                 <a href="{% url 'admi:genre_list' %}">ジャンル一覧</a>
                 <a href="{% url 'admi:user_list' %}">会員情報</a>
                 <a href="{% url 'admi:booking_list' %}">予約情報</a>
                 <a href="">売上管理</a>
+            </nav>
+            <!-- スマホ用メニュー -->
+            <img id="menu-sp" src="/static/admi/menu.svg" alt="ナビゲーションを開く" onclick="document.getElementById('nav-sp').style.display = 'block'">
+            <!-- スマホ用ナビゲーション -->
+            <nav id="nav-sp">
+                <img id="close" src="/static/admi/close.svg" alt="ナビゲーションを閉じる" onclick="document.getElementById('nav-sp').style.display = 'none'">
+                <div id="space"></div>
+                <a class="menu" href="{% url 'admi:company_update' pk=1 %}" onclick="document.getElementById('nav-sp').style.display = 'none'">会社情報編集</a>
+                <a class="menu" href="{% url 'admi:shop_list' %}" onclick="document.getElementById('nav-sp').style.display = 'none'">店舗情報</a>
+                <a class="menu" href="{% url 'admi:genre_list' %}" onclick="document.getElementById('nav-sp').style.display = 'none'">ジャンル一覧</a>
+                <a class="menu" href="{% url 'admi:user_list' %}"
+                onclick="document.getElementById('nav-sp').style.display = 'none'">会員情報</a>
+                <a class="menu" href="{% url 'admi:booking_list' %}"
+                onclick="document.getElementById('nav-sp').style.display = 'none'">予約情報</a>
+                <a class="menu" href="{% url 'admi:booking_list' %}"
+                onclick="document.getElementById('nav-sp').style.display = 'none'">売上管理</a>
+        
             </nav>
             {% else %}
                 {% if request.path != '/admi/login/' %}

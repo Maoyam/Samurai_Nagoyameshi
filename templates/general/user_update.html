@@ -13,8 +13,8 @@
       {% csrf_token %}
       {{ form|bootstrap }}
       <br>
-      <a href="{% url 'mypage' pk=user.pk %}">戻る</a>
-      <button type="submit" class="btn btn-primary" style="background-color: #F57F00; color: #FFFFFF;">更新</button>
+      <button type="submit" class="btn" style="background-color: #F57F00; color: #FFFFFF; margin-left: 10px;">更新</button>
+      <button type="button" class="btn btn-secondary btn-block" onClick="javascript:history.go(-1);">戻る</button>
     </form>
   </div>
 {% endblock %}
