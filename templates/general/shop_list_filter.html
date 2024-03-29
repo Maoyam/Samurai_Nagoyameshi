@@ -14,11 +14,6 @@
                 <div class="shop_item">
                     <div>
                         <img src="{{restaurant.image.url}}" alt="{{restaurant.name}}">
-                        {% if average_rating_stars %}
-                        <div class="stars">
-                        {{ average_rating_stars|safe }}
-                        </div>
-                        {% endif %}
                     </div>
                     <div class="shop_item_text">
                         <h2>{{restaurant.name}}</h2>

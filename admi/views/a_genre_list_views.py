@@ -10,7 +10,9 @@ class AdmiGenreListView(AdmiRequiredView, ListView):
     template_name = 'admi/genre_list.html'
     paginate_by = 10
     
-    pass
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(image__isnull=False)
 
 class AdmiGenreCreateView(AdmiRequiredView, CreateView):
     model = Genre

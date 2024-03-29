@@ -10,7 +10,7 @@
 <div class="list_container">
     <h2 class="admi_h2">ジャンル一覧</h2>
     <button class="btn" style="background-color: #F57F00; color: #FFFFFF; float: right; margin-bottom: 5px;" onclick="location.href='{% url 'admi:add_genre' %}'">新規作成</button>
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover table-bordered admi-tbl">
       <thead class="table-secondary">
         <tr style="text-align: center;">
           <th>ジャンル名</th>
@@ -21,7 +21,13 @@
       {% for genre in object_list %}
       <tr>
           <td>{{ genre.name }}</td>
-          <td><img src="{{ genre.image }}" alt="{{ genre.name }}"></td>
+          <td>
+            {% if genre.image %}
+            <img src="{{ genre.image.url }}" alt="{{ genre.name }}">
+            {% else %}
+            No Image
+            {% endif %}
+          </td>
           <td style="text-align: center;">
             <button class="btn btn-secondary" onclick="location.href='{% url 'admi:edit_genre' pk=genre.id %}'" style="color: #FFFFFF;">編集</button>
             <button class="btn btn-secondary" onclick="location.href='{% url 'admi:delete_genre' pk=genre.id %}'" style="color: #FFFFFF;">削除</button>         
