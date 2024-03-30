@@ -11,9 +11,9 @@
         <!-- お気に入りボタン -->
         <button class="btn_fav" id="favorite-button" data-restaurant-id="{{ restaurant.id }}" {% if is_favorite %}data-favorite="true"{% endif %}>
             {% if is_favorite %}
-                <img src="/static/general/images/favorite_on.png"> お気に入りを解除
+                <img src="/static/general/images/favorite_on.png" alt="お気に入りから削除"> 
             {% else %} 
-                <img src="/static/general/images/favorite_off.png"> お気に入りに追加
+                <img src="/static/general/images/favorite_off.png" alt="お気に入りに追加">
             {% endif %}
         </button>
         <!-- 店舗情報左 -->

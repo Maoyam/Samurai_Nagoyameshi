@@ -1,6 +1,7 @@
 from django import forms
 from django.forms.widgets import DateInput, TimeInput
-from datetime import date
+from datetime import date, timedelta, time
+from django.utils import timezone
 from commondb.models.review import Review
 from commondb.models.user import User
 from commondb.models.booking import Booking
@@ -55,21 +56,22 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['restaurant','booking_date', 'booking_time', 'numbers_of_ppl']
+        tomorrow = date.today() + timedelta(days=1)
         widgets = {
-            'booking_date': forms.DateInput(attrs={'type': 'date', 'style': 'font-size: 0.9em;'}),
-            'booking_time': forms.TimeInput(attrs={'type': 'time', 'style': 'font-size: 0.9em;'}),
+            'booking_date': forms.DateInput(attrs={'type': 'date', 'style': 'font-size: 0.9em;','min':tomorrow.strftime('%Y-%m-%d')}),
+            'booking_time': forms.Select(choices=[(time(hour, minute), f"{hour:02d}:{minute:02d}") for hour in range(17, 22) for minute in [0, 30]]),
         }
         
     def clean_booking_date(self):
         booking_date = self.cleaned_data['booking_date']
-        if booking_date <= date.today():
+        if booking_date <= timezone.now().date():
             raise forms.ValidationError('予約日は翌日以降を選択してください。')
         return booking_date
         
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['numbers_of_ppl'].widget = forms.NumberInput(attrs={'min': 0, 'max': 8,  'style': 'font-size: 0.9em;' })
+        self.fields['numbers_of_ppl'].widget = forms.NumberInput(attrs={'min': 1, 'max': 8,  'style': 'font-size: 0.9em;' })
         
 
 class MyPasswordChangeForm(PasswordChangeForm):

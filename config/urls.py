@@ -31,7 +31,6 @@ from general.views.user_register_view import RegisterView
 from general.views.company_view import CompanyDetailView
 from general.views.reguration_views import RegTemplateView
 from general.views.password_view import PasswordChange, PasswordChangeDone
-from django.contrib.auth import views as auth_views
 from general.views.user_delete_views import UserDeleteView
 from general.views.user_upgrade_view import UserUpgradeView
 from general.views.checkout_view import UpgradeCheckOutView, UpgradeSuccessView, UpgradeCancelView, create_checkout_session
@@ -63,10 +62,6 @@ urlpatterns = [
     path('general/reguration/', RegTemplateView.as_view(), name="reguration"),
     path('password_change/', PasswordChange.as_view(), name='password_change'),
     path('password_change/done/', PasswordChangeDone.as_view(), name='password_change_done'),
-    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'), 
-    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('payment_checkout/', UpgradeCheckOutView.as_view(), name="payment_checkout"),
     path('payment_successful/', UpgradeSuccessView.as_view(), name="payment_successful"),
     path('payment_cancelled/', UpgradeCancelView.as_view(), name="payment_cancelled"),

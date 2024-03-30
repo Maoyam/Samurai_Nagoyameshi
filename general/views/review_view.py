@@ -27,7 +27,8 @@ class SubmitReviewView(LoginRequiredMixin, View):
             
             request.session['restaurant_id'] = restaurant_id           
             return redirect('top')
-        return render(request, 'general/submit_review.html', {'form': form, 'restaurant': restaurant})
+        else:
+            return render(request, 'general/submit_review.html', {'form': form, 'restaurant': restaurant})
 
 class ReviewConfirmationView(LoginRequiredMixin, View):
     def get(self, request):
@@ -45,7 +46,8 @@ class ReviewUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         # フォームが有効な場合は保存する前に画像を処理する
         review = form.save(commit=False)
-        review.user = self.request.user  # ログインユーザーを設定する場合
+        # ログインユーザーを設定
+        review.user = self.request.user  
 
         # 画像フィールドをチェックし、ファイルがアップロードされているか確認する
         if 'image1' in self.request.FILES:

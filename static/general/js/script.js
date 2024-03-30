@@ -54,9 +54,9 @@ $(function () {
                     // お気に入りの状態をトグルするためのロジック
                     $(this).data('favorite', String(!isFavorite)); 
                     if (isFavorite) {
-                        $(this).html('<img src="/static/general/images/favorite_on.png" style="width: 20px; height: 20px;"> お気に入りを解除');
+                        $(this).html('<img src="/static/general/images/favorite_on.png" style="width: 20px; height: 20px;">');
                     } else {
-                        $(this).html('<img src="/static/general/images/favorite_off.png" style="width: 20px; height: 20px;"> お気に入りに追加');
+                        $(this).html('<img src="/static/general/images/favorite_off.png" style="width: 20px; height: 20px;">');
                     }
                 } else {
                     alert(data.message);
