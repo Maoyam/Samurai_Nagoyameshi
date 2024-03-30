@@ -33,7 +33,8 @@ from general.views.reguration_views import RegTemplateView
 from general.views.password_view import PasswordChange, PasswordChangeDone
 from django.contrib.auth import views as auth_views
 from general.views.user_delete_views import UserDeleteView
-from general.views import checkout_view
+from general.views.user_upgrade_view import UserUpgradeView
+from general.views.checkout_view import UpgradeCheckOutView, UpgradeSuccessView, UpgradeCancelView, create_checkout_session
 
 
 urlpatterns = [
@@ -57,6 +58,7 @@ urlpatterns = [
     path('general/register/', RegisterView.as_view(), name="register"),
     path('general/user_update/<int:pk>/', UserUpdateView.as_view(), name="user_update"),
     path('general/user_delete/<int:pk>/', UserDeleteView.as_view(), name="user_delete"),
+    path('general/user_update/', UserUpgradeView.as_view(), name="upgrade"),
     path('general/company/<int:pk>/', CompanyDetailView.as_view(), name="company"),
     path('general/reguration/', RegTemplateView.as_view(), name="reguration"),
     path('password_change/', PasswordChange.as_view(), name='password_change'),
@@ -65,11 +67,10 @@ urlpatterns = [
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
-    path('payment_checkout/', checkout_view.create_checkout_session, name="payment_checkout"),
-    path('payment_successful/', checkout_view.create_checkout_session, name="payment_successful"),
-    path('payment_cancelled', checkout_view.create_checkout_session, name="payment_cancelled"),
-    path('create-checkout-session', checkout_view.customer_portal, name="payment_checkout"),
-    path('stripe_webhook', checkout_view.webhook, name="stripe_webhook"),
+    path('payment_checkout/', UpgradeCheckOutView.as_view(), name="payment_checkout"),
+    path('payment_successful/', UpgradeSuccessView.as_view(), name="payment_successful"),
+    path('payment_cancelled/', UpgradeCancelView.as_view(), name="payment_cancelled"),
+    path('create_checkout_session/', create_checkout_session, name="create_checkout_session"),
     
 ]
 

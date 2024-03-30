@@ -33,6 +33,7 @@ li {
     padding: 10px 20px;
     display: inline-block;
     font-size: 0.9rem;
+    text-decoration: none;
 }
 
 /* 中央揃え */

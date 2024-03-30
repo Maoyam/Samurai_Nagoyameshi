@@ -14,5 +14,4 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
-    #     # 必要に応じて追加のコンテキストデータを提供する
     #     return context
