@@ -373,3 +373,10 @@ python manage.py runserver
 python manage.py runserver
  /usr/bin/env /usr/local/bin/python3 /root/.vscode-server/extensions/ms-python.debugpy-2024.2.0-linux-arm64/bundled/libs/debugpy/adapter/../../debugpy/launcher 51799 -- /root/manage.py runserver 8080 
 printenv > "/tmp/tmp-297EjL0IGKOAHCR.txt"
+python manage.py runserver
+pip install stripe
+python manage.py runserver
+pip install django-storages
+stripe --version
+stripe -version
+python manage.py runserver

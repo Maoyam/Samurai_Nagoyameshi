@@ -386,6 +386,12 @@ footer a {
     font-size: 0.9em;
 }
 
+#favorite-button img {
+    vertical-align: middle;
+    width: 20px; 
+    height: 20px;
+}
+
 /* レビューと予約 */
 .shop_contents {
     display: flex;
@@ -982,10 +988,15 @@ color: #444444;
     }
 
     .shop_info_L {
-        width: 80%;
+        width: 100%;
         min-width: 270px;
-        margin: 0 auto 20px auto;
+        margin: 0 auto;
+        text-align: center;
 
+    }
+
+    .shop_info_L img{
+        width: 100%;
     }
 
     .shop_info_R {
@@ -1024,7 +1035,6 @@ color: #444444;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 0 auto;
         padding: 20px 0 0 0;
 
 
@@ -1036,7 +1046,7 @@ color: #444444;
         align-items: center;
         width: 100%;
         max-width: 450px;
-        padding: 0 20px 0 20px;
+        padding: 0 20px;
         
     }
 
@@ -1055,6 +1065,7 @@ color: #444444;
     .booking-container {
         width: 100%;
         max-width: 450px;
+        padding: 0 20px;
         margin-left: 0;
     }
 

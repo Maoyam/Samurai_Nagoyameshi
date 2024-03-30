@@ -9,11 +9,11 @@
     <!-- 店舗情報 -->
     <div class="shop_info" id="fav-toggle">
         <!-- お気に入りボタン -->
-        <button class="btn_fav" id="favorite-button" data-restaurant-id="{{ restaurant.id }}" {% if is_favorite %}data-favorite="true"{% endif %} onclick="toggleFavorite('{{ restaurant.id }}')">
+        <button class="btn_fav" id="favorite-button" data-restaurant-id="{{ restaurant.id }}" {% if is_favorite %}data-favorite="true"{% endif %}>
             {% if is_favorite %}
-                <img src="/static/general/images/favorite_black_24dp.svg" style="width: 15px; height: 15px;"> お気に入りを解除
+                <img src="/static/general/images/favorite_on.png"> お気に入りを解除
             {% else %} 
-                <img src="/static/general/images/favorite_border_black_24dp.svg" style="width: 15px; height: 15px;"> お気に入りに追加
+                <img src="/static/general/images/favorite_off.png"> お気に入りに追加
             {% endif %}
         </button>
         <!-- 店舗情報左 -->
@@ -87,13 +87,13 @@
                         
                         <div class="review_images">
                             {% if review.image1 %}
-                            <img src="{{review.image1.url}}" alt="レビュー画像" >
+                            <img src="{{review.image1.url}}" alt="" >
                             {% endif %}
                             {% if review.image2 %}
-                            <img src="{{review.image2.url}}" alt="レビュー画像">
+                            <img src="{{review.image2.url}}" alt="">
                             {% endif %}
                             {% if review.image3 %}
-                            <img src="{{review.image3.url}}" alt="レビュー画像">
+                            <img src="{{review.image3.url}}" alt="">
                             {% endif %}
                         </div>
                         <hr class="hr_1">
@@ -136,63 +136,3 @@
     </div>
     </main>
     {% endblock content %}
-    <script>
-        // お気に入りボタンのクリックイベント処理
-        function toggleFavorite(restaurantId) {
-            var csrftoken = getCookie('csrftoken');  // csrftokenを取得する関数を呼び出す（後述）
-            var url = '/favorite_toggle/' + restaurantId + '/';  // お気に入りトグルのエンドポイントURL
-        
-            // POSTリクエストを作成
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', url);
-            
-            // リクエストヘッダーにCSRFトークンを追加
-            xhr.setRequestHeader('X-CSRFToken', csrftoken);
-            
-            // リクエスト送信
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // リクエストが成功した場合の処理
-                    var response = JSON.parse(xhr.responseText);
-                    console.log(response);
-                    // お気に入りの状態を反転させる
-                    if (response.status === 'success') {
-                        var button = document.getElementById('favorite-button');
-                        button.dataset.favorite = button.dataset.favorite === 'true' ? 'false' : 'true';
-                        // ボタンのテキストを更新
-                        if (button.dataset.favorite === 'true') {
-                            button.innerHTML = '<img src="/static/general/images/favorite_black_24dp.svg" style="width: 15px; height: 15px;"> お気に入りを解除';
-                        } else {
-                            button.innerHTML = '<img src="/static/general/images/favorite_border_black_24dp.svg" style="width: 15px; height: 15px;"> お気に入りに追加';
-                        }
-                    }
-                } else {
-                    // リクエストが失敗した場合の処理
-                    console.error(xhr.statusText);
-                }
-            };
-            xhr.onerror = function () {
-                // ネットワークエラーなどの場合の処理
-                console.error('Request failed');
-            };
-            xhr.send();  // リクエストを送信
-        }
-        
-        // csrftokenを取得する関数
-        function getCookie(name) {
-            var cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i].trim();
-                    // Cookie名が一致する場合、値を取得
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-        
-    </script>

@@ -11,5 +11,5 @@ class Upgrade(models.Model):
 @receiver(post_save, sender=User)
 def create_user_payment(sender, instance, created, **kwards):
     if created:
-        Userpayment.object.create(user=instance)
+        Upgrade.object.create(user=instance)
         
