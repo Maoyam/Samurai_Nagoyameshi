@@ -131,7 +131,7 @@
         <li class="mypg_user_info_item"><a href="{% url 'user_update' pk=user.pk %}">会員情報編集</a></li>
         <li class="mypg_user_info_item"><a href="{% url 'password_change' %}">パスワード変更</a></li>
         {% if user.is_paid_member %}
-        <li class="mypg_user_info_item"><a href="">有料会員停止</a></li>
+        <li class="mypg_user_info_item"><a href="{% url 'vip_unsub' %}">有料会員停止</a></li>
         {% endif %}
         {% if user.is_authenticated %}
           {% if not user.is_paid_member %}

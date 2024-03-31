@@ -9,7 +9,6 @@ from .models.company import Company
 from .models.reguration import Reguration
 from django.utils.safestring import mark_safe
 from django.contrib.auth import get_user_model
-from .models.upgrade import StripeCustomer
 
 
 # ユーザー管理
@@ -64,4 +63,3 @@ admin.site.register(Restaurant, RestaurantAdmin)
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Booking, BookingAdmin)
 admin.site.register(Favorite, FavoriteAdmin)
-admin.site.register(StripeCustomer)

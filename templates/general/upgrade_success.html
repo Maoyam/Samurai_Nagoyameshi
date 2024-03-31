@@ -1,19 +1,15 @@
 {% extends "base.html" %}
-{% load bootstrap %}
-{% block head %}
-<script src="/static/general/js/client.js" defer></script>
-{% endblock %}
 {% block title %}VIP会員お支払い{% endblock %}
 
 {% block content %}
   <section>
-      <div class="description Box-root">
+      <div class="upgrade_container">
         <h3>VIP会員へのサブスクが完了しました！</h3>
       </div>
     </div>
-    <form action="/create-portal-session" method="POST">
+    <form action="/create-portal-session" method="POST" class="center">
       <input type="hidden" id="session-id" name="session_id" value="" />
-      <button id="checkout-and-portal-button" type="submit">支払い管理へ</button>
+      <a href="{% url 'top' %}" class="btn btn_basic">トップへ戻る</a>
     </form>
   </section>
 {% endblock %}

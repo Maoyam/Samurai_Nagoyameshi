@@ -34,6 +34,7 @@ from general.views.reguration_views import RegTemplateView
 from general.views.password_view import PasswordChange, PasswordChangeDone
 from general.views.user_delete_views import UserDeleteView
 from general.views.checkout_view import UpgradeCheckoutView, UpgradeSuccessView, UpgradeCancelView, UpgradeView, create_checkout_session, stripe_config, stripe_webhook
+from general.views.vip_user_unsub_views import VipUserUnsubView
 
 
 urlpatterns = [
@@ -58,6 +59,7 @@ urlpatterns = [
     path('general/user_update/<int:pk>/', UserUpdateView.as_view(), name="user_update"),
     path('general/user_delete/<int:pk>/', UserDeleteView.as_view(), name="user_delete"),
     path('general/user_upgrade/', UpgradeView.as_view(), name="upgrade"),
+    path('general/vip_unsub/', VipUserUnsubView.as_view(), name="vip_unsub"),
     path('general/company/<int:pk>/', CompanyDetailView.as_view(), name="company"),
     path('general/reguration/', RegTemplateView.as_view(), name="reguration"),
     path('password_change/', PasswordChange.as_view(), name='password_change'),

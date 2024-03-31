@@ -11,7 +11,3 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
     def get_object(self, queryset=None):
         # ログイン中のユーザーを取得して返す
         return self.request.user
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     return context

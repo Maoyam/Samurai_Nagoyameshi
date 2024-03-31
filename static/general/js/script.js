@@ -31,7 +31,10 @@ $(function () {
     });
 
     // お気に入りボタンのクリック処理
-    $('#favorite-button').click(function () {
+    // #favorite-button要素を取得して変数に保存
+    const favoriteButton = $('#favorite-button'); 
+
+    favoriteButton.click(function () {
         const csrf_token = getCookie("csrftoken");
         const isFavorite = $(this).data('favorite') === 'true'; 
         const restaurantId = $(this).data('restaurantId'); 
@@ -54,9 +57,9 @@ $(function () {
                     // お気に入りの状態をトグルするためのロジック
                     $(this).data('favorite', String(!isFavorite)); 
                     if (isFavorite) {
-                        $(this).html('<img src="/static/general/images/favorite_on.png" style="width: 20px; height: 20px;">');
-                    } else {
                         $(this).html('<img src="/static/general/images/favorite_off.png" style="width: 20px; height: 20px;">');
+                    } else {
+                        $(this).html('<img src="/static/general/images/favorite_on.png" style="width: 20px; height: 20px;">');
                     }
                 } else {
                     alert(data.message);
