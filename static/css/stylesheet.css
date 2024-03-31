@@ -331,7 +331,6 @@ footer a {
     right: 1rem;
     top: 25px;
     padding: 10px 20px;
-    display: inline-block;
 }
 
 /* 店舗詳細左 */
@@ -792,6 +791,13 @@ footer a {
 .mypg_user_info_item a {
 font-size: 0.9em;
 color: #444444;
+}
+
+.mypg_container img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 0.3em;
 }
 
 /* パスワード */

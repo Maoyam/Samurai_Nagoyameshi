@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -32,8 +33,7 @@ from general.views.company_view import CompanyDetailView
 from general.views.reguration_views import RegTemplateView
 from general.views.password_view import PasswordChange, PasswordChangeDone
 from general.views.user_delete_views import UserDeleteView
-from general.views.user_upgrade_view import UserUpgradeView
-from general.views.checkout_view import UpgradeCheckOutView, UpgradeSuccessView, UpgradeCancelView, create_checkout_session
+from general.views.checkout_view import UpgradeCheckoutView, UpgradeSuccessView, UpgradeCancelView, UpgradeView, create_checkout_session, stripe_config, stripe_webhook
 
 
 urlpatterns = [
@@ -57,15 +57,18 @@ urlpatterns = [
     path('general/register/', RegisterView.as_view(), name="register"),
     path('general/user_update/<int:pk>/', UserUpdateView.as_view(), name="user_update"),
     path('general/user_delete/<int:pk>/', UserDeleteView.as_view(), name="user_delete"),
-    path('general/user_update/', UserUpgradeView.as_view(), name="upgrade"),
+    path('general/user_upgrade/', UpgradeView.as_view(), name="upgrade"),
     path('general/company/<int:pk>/', CompanyDetailView.as_view(), name="company"),
     path('general/reguration/', RegTemplateView.as_view(), name="reguration"),
     path('password_change/', PasswordChange.as_view(), name='password_change'),
     path('password_change/done/', PasswordChangeDone.as_view(), name='password_change_done'),
-    path('payment_checkout/', UpgradeCheckOutView.as_view(), name="payment_checkout"),
+    path('create_checkout_session/', create_checkout_session, name='checkout_session'),
+    path('payment_successful/', UpgradeSuccessView.as_view(), name="payment_successful"),
+    path('payment_checkout/', UpgradeCheckoutView.as_view(), name="payment_checkout"),
     path('payment_successful/', UpgradeSuccessView.as_view(), name="payment_successful"),
     path('payment_cancelled/', UpgradeCancelView.as_view(), name="payment_cancelled"),
-    path('create_checkout_session/', create_checkout_session, name="create_checkout_session"),
+    path('config/', stripe_config),
+    path('webhook/', stripe_webhook),
     
 ]
 

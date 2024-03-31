@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% load bootstrap %}
+{% load static %}
+
 
 {% block title %}VIP会員お支払い{% endblock %}
 
 {% block content %}
 <h2>VIP会員サブスクリプション</h2>
 <p>¥300/月</p>
-<form action="/create-checkout-session" method="POST">
-  {% csrf_token %}
-  <!-- Add a hidden field with the lookup_key of your Price -->
-  <input type="hidden" name="lookup_key" value="vip_subscription" />
-  <button class="btn btn_basic" id="checkout-and-portal-button" type="submit">支払う</button>
-</form>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/static/general/js/main.js"></script>
+
+<button class="btn btn_basic" id="submitBtn" type="submit">支払う</button>
+
 {% endblock %}
