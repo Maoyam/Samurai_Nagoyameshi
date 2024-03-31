@@ -6,12 +6,14 @@
 {% block title %}VIP会員お支払い{% endblock %}
 
 {% block content %}
-<h2>VIP会員サブスクリプション</h2>
-<p>¥300/月</p>
+<div class="upgrade_container">
+  <h3>VIP会員サブスクリプション</h3>
+  <p>¥300/月</p>
 
-<script src="https://js.stripe.com/v3/"></script>
-<script src="/static/general/js/main.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="/static/general/js/main.js"></script>
 
-<button class="btn btn_basic" id="submitBtn" type="submit">支払う</button>
+  <button class="btn btn_basic bold" id="submitBtn" type="submit">今すぐ支払う</button>
+</div>
 
 {% endblock %}

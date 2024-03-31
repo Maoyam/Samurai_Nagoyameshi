@@ -1231,6 +1231,11 @@ color: #444444;
     font-size: 0.8rem;
 }
 
+.page_paginator a{
+    color: #000000;
+    margin-right: 5px;
+}
+
 /* フォーム */
 .add_form label:after {
      content: " *必須";
@@ -1327,10 +1332,10 @@ color: #444444;
         display: block;
         background-color: #D9D9D9;
         position: absolute;
-        left: 0;
+        right: 0;
         top: 0;
         height: 100%;
-        width: 100%;
+        width: 50%;
         display: none;
         z-index: 100;
     }
