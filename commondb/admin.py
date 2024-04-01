@@ -7,6 +7,7 @@ from .models.booking import Booking
 from .models.favorite import Favorite
 from .models.company import Company
 from .models.reguration import Reguration
+from .models.sale import Sale
 from django.utils.safestring import mark_safe
 from django.contrib.auth import get_user_model
 
@@ -53,6 +54,10 @@ class BookingAdmin(admin.ModelAdmin):
 # お気に入り
 class FavoriteAdmin(admin.ModelAdmin):
     list_display = ('id', 'restaurant', 'user', 'create_date')
+
+# 売り上げ
+class SaleAdmin(admin.ModelAdmin):
+    list_display = ('id', 'month', 'total_sales', 'paid_member_count')
     
 admin.site.register(User)
 admin.site.register(Company, CompanyAdmin)
@@ -63,3 +68,4 @@ admin.site.register(Restaurant, RestaurantAdmin)
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Booking, BookingAdmin)
 admin.site.register(Favorite, FavoriteAdmin)
+admin.site.register(Sale, SaleAdmin)

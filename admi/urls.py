@@ -6,6 +6,7 @@ from .views.a_reguration_views import RegTemplateView, RegUpdateView
 from .views.a_genre_list_views import AdmiGenreListView, AdmiGenreCreateView, AdmiGenreUpdateView, AdmiGenreDeleteView
 from .views.a_booking_list_views import AdmiBookingListView, AdmiBookingDetailView, AdmiBookingUpdateView, AdmiBookingDeleteView
 from .views.a_login_views import AdmiLoginView, AdmiLogoutView
+from .views.sales_view import SaleListView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -32,8 +33,9 @@ urlpatterns = [
     path('edit_booking/<int:pk>/', AdmiBookingUpdateView.as_view(), name="edit_booking"),
     path('delete_booking/<int:pk>/', AdmiBookingDeleteView.as_view(), name="delete_booking"),
     path('booking_detail/<int:pk>/', AdmiBookingDetailView.as_view(), name="booking_detail"),
+    path('sales_list/', SaleListView.as_view(), name='sales_list'),
 ]   
 
 
-# MEDIA_URL に対する URL パターンを追加します
+# MEDIA_URL に対する URL パターンを追加
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
