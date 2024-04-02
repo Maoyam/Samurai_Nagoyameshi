@@ -6,7 +6,7 @@ from .views.a_reguration_views import RegTemplateView, RegUpdateView
 from .views.a_genre_list_views import AdmiGenreListView, AdmiGenreCreateView, AdmiGenreUpdateView, AdmiGenreDeleteView
 from .views.a_booking_list_views import AdmiBookingListView, AdmiBookingDetailView, AdmiBookingUpdateView, AdmiBookingDeleteView
 from .views.a_login_views import AdmiLoginView, AdmiLogoutView
-from .views.sales_view import SaleListView
+from .views.sales_view import SalesSummaryView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -33,7 +33,7 @@ urlpatterns = [
     path('edit_booking/<int:pk>/', AdmiBookingUpdateView.as_view(), name="edit_booking"),
     path('delete_booking/<int:pk>/', AdmiBookingDeleteView.as_view(), name="delete_booking"),
     path('booking_detail/<int:pk>/', AdmiBookingDetailView.as_view(), name="booking_detail"),
-    path('sales_list/', SaleListView.as_view(), name='sales_list'),
+    path('sales_summary/', SalesSummaryView.as_view(), name="sales_summary"),
 ]   
 
 

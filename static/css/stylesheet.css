@@ -1276,6 +1276,7 @@ color: #444444;
 /* 管理者 フッター */
 .admi_footer {
     background-color: #D9D9D9;
+    width: 100vw;
 }
 .admi_footer p {
     text-align: center;

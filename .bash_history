@@ -380,3 +380,7 @@ pip install django-storages
 stripe --version
 stripe -version
 python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+python manage.py runserver
+pip install django-cron
