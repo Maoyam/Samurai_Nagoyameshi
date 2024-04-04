@@ -6,6 +6,7 @@
 __pycache__/
 db-volumes/
 #db.sqlite3
-# settings_secret.py
 .env_aws_s3
 .env_stripe
+.bash_history
+.request.json
