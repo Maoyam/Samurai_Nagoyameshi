@@ -71,7 +71,6 @@ urlpatterns = [
     path('payment_cancelled/', UpgradeCancelView.as_view(), name="payment_cancelled"),
     path('config/', stripe_config),
     path('webhook/', stripe_webhook),
-    
 ]
 
 # MEDIA_URL に対する URL パターンを追加

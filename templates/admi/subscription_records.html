@@ -1,0 +1,51 @@
+{% extends "base_admi.html" %}
+{% load bootstrap %}
+
+{% block title %}月次売上集計{% endblock %}
+
+{% block content %}
+<div class="container space_topbottom">
+{% if redirect_url %}
+    <script>window.location.href = "{{ redirect_url }}";</script>
+{% else %}
+    <h2>月次売上集計</h2>
+    <form method="get" class="mb-3">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="year" class="col-form-label">年を選択:</label>
+            </div>
+            <div class="col-auto">
+                <select name="year" id="year" class="form-select">
+                    {% for year in years %}
+                        <option value="{{ year }}" {% if year == selected_year %} selected {% endif %}>{{ year }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-auto">
+                <button type="submit" class="btn"style="background-color: #F57F00; color: #FFFFFF;">表示</button>
+            </div>
+        </div>
+    </form>
+    <p class="bold">{{ selected_year }}年の集計一覧</p>
+    <table class="table table-bordered">
+        <thead class="table-secondary">
+            <tr style="text-align: center;">
+                <th scope="col">月</th>
+                <th scope="col">有料会員数</th>
+                <th scope="col">売上合計</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for month, member_count, total_sales in monthly_data %}
+                <tr>
+                    <td>{{ month }}</td>
+                    <td>{{ member_count }}</td>
+                    <td>{{ total_sales }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

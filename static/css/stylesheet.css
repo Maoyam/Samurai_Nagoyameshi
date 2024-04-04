@@ -1192,6 +1192,12 @@ color: #444444;
     display: inline;
     font-size: 20px;
 }
+/* 上下マージン */
+.space_topbottom {
+    margin: 40px auto;
+}
+
+
   /* 管理者 ヘッダー */
 .admi_menu_container {
     display: flex;

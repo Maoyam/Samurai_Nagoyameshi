@@ -7,6 +7,7 @@ from .models.booking import Booking
 from .models.favorite import Favorite
 from .models.company import Company
 from .models.reguration import Reguration
+from .models.subscription import Subscription_record
 from django.utils.safestring import mark_safe
 from django.contrib.auth import get_user_model
 
@@ -55,6 +56,8 @@ class FavoriteAdmin(admin.ModelAdmin):
     list_display = ('id', 'restaurant', 'user', 'create_date')
 
 # 売り上げ
+class Subscription_recordAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'year', 'month', 'is_paid_member')
     
 admin.site.register(User)
 admin.site.register(Company, CompanyAdmin)
@@ -65,3 +68,4 @@ admin.site.register(Restaurant, RestaurantAdmin)
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Booking, BookingAdmin)
 admin.site.register(Favorite, FavoriteAdmin)
+admin.site.register(Subscription_record, Subscription_recordAdmin)

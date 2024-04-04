@@ -26,7 +26,7 @@
                 <a href="{% url 'admi:genre_list' %}">ジャンル一覧</a>
                 <a href="{% url 'admi:user_list' %}">会員情報</a>
                 <a href="{% url 'admi:booking_list' %}">予約情報</a>
-                <a href="{% url 'admi:sales_summary' %}">売上管理</a>
+                <a href="{% url 'admi:sales_list' %}">売上管理</a>
             </nav>
             <!-- スマホ用メニュー -->
             <img id="menu-sp" src="/static/admi/menu.svg" alt="ナビゲーションを開く" onclick="document.getElementById('nav-sp').style.display = 'block'">
@@ -41,7 +41,7 @@
                 onclick="document.getElementById('nav-sp').style.display = 'none'">会員情報</a>
                 <a class="menu" href="{% url 'admi:booking_list' %}"
                 onclick="document.getElementById('nav-sp').style.display = 'none'">予約情報</a>
-                <a class="menu" href="{% url 'admi:sales_summary' %}"
+                <a class="menu" href="{% url 'admi:sales_list' %}"
                 onclick="document.getElementById('nav-sp').style.display = 'none'">売上管理</a>
         
             </nav>
