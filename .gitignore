@@ -9,4 +9,3 @@ db-volumes/
 .env_aws_s3
 .env_stripe
 .bash_history
-.request.json
