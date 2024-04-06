@@ -1,6 +1,4 @@
-from django.urls import reverse
 from commondb.models.subscription import Subscription_record
-from django.db.models import Sum
 from django.views.generic import ListView
 
 
@@ -30,15 +28,14 @@ class SubscriptionRecordListView(ListView):
         context['selected_year'] = selected_year
 
         # 月ごとの有料会員数と売上合計を取得
-        if selected_year:
-            monthly_data = []
-            for month in range(1, 13):
-                monthly_records = Subscription_record.objects.filter(year=selected_year, month=month)
-                member_count = monthly_records.filter(is_paid_member=True).count()
-                total_sales = member_count * 300  # 月額代金は300円
-                member_count_display = '-' if member_count == 0 else member_count
-                total_sales_display = '-' if total_sales == 0 else total_sales
-                monthly_data.append((month, member_count_display, total_sales_display))
-            context['monthly_data'] = monthly_data
+        monthly_data = []
+        for month in range(1, 13):
+            monthly_records = Subscription_record.objects.filter(year=selected_year, month=month)
+            member_count = monthly_records.filter(is_paid_member=True).count()
+            total_sales = member_count * 300  # 月額代金は300円
+            member_count_display = '-' if member_count == 0 else member_count
+            total_sales_display = '-' if total_sales == 0 else total_sales
+            monthly_data.append((month, member_count_display, total_sales_display))
+        context['monthly_data'] = monthly_data
 
-            return context
+        return context
