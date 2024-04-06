@@ -18,5 +18,5 @@ class AdmiLoginView(LoginView):
             return redirect(self.success_url)
         return super().dispatch(request, *args, **kwargs)
      
-class AdmiLogoutView(LoginRequiredMixin, LogoutView):
+class AdmiLogoutView(LogoutView):
      next_page = reverse_lazy('admi:admi_login')
