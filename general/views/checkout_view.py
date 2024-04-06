@@ -16,6 +16,7 @@ import stripe
 def create_checkout_session(request):
     if request.method == 'GET':
 
+        # domain_url = 'http://127.0.0.1:8000/'
         domain_url = 'https://samurai-nagoyameshi-aym-4b9b95116dd9.herokuapp.com/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
