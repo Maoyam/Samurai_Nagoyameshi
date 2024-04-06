@@ -4,11 +4,14 @@ from django.views import View
 from django.views.generic.edit import UpdateView
 from general.forms import ReviewForm
 from commondb.models.restaurant import Restaurant
+from commondb.models.review import Review
 from general.forms import Review
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.urls import reverse_lazy
+from django.views.generic.edit import  DeleteView
 
 class SubmitReviewView(LoginRequiredMixin, View):
     def get(self, request, restaurant_id):
@@ -34,7 +37,7 @@ class ReviewConfirmationView(LoginRequiredMixin, View):
     def get(self, request):
         restaurant_id = request.session.get('restaurant_id')  # レビュー投稿で設定されたrestaurant_idをセッションから取得
         if not restaurant_id:
-            # もしrestaurant_idがセッションにない場合は、適切なエラー処理を行うか、リダイレクトするなどの方法で対処する
+            
             return HttpResponse("Error: restaurant_id is missing")
         return render(request, 'general/review_confirmation.html', {'restaurant_id': restaurant_id})
     
@@ -70,4 +73,20 @@ class ReviewUpdateView(LoginRequiredMixin, UpdateView):
         review = self.get_object()
         context['restaurant_name'] = review.restaurant.name
         
-        return context   
+        return context
+    
+    
+class ReviewDeleteView(LoginRequiredMixin, DeleteView):
+    model = Review
+    template_name = 'general/review_confirm_delete.html'
+    
+    def get_success_url(self):
+            return reverse_lazy('mypage', kwargs={'pk': self.request.user.pk})
+    
+    def get_context_data(self, **kwargs: Any):
+        context = super().get_context_data(**kwargs)
+        
+        review_id = self.kwargs.get('pk')
+        context['review_id'] = review_id
+        
+        return context

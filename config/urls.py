@@ -25,7 +25,7 @@ from general.views.logout import LogoutView
 from general.views.shop_detail_view import ShopTemplatelView, FavoriteToggleView
 from general.views.booking_confirm_view import BookingCompleteView
 from general.views.shop_list_view import SearchView, GenreFilterView, AreaFilterView
-from general.views.review_view import SubmitReviewView, ReviewConfirmationView, ReviewUpdateView
+from general.views.review_view import SubmitReviewView, ReviewConfirmationView, ReviewUpdateView, ReviewDeleteView
 from general.views.mypage_view import MypageView, MypageBookingDeleteView, MypageReviewDetailView
 from general.views.user_update_view import UserUpdateView
 from general.views.user_register_view import RegisterView
@@ -55,6 +55,7 @@ urlpatterns = [
     path('general/mypage_booking_delete/<int:pk>/',MypageBookingDeleteView.as_view(), name="mypage_booking_delete"),
     path('general/mypage_review_detail/<int:pk>/', MypageReviewDetailView.as_view(), name="mypage_review_detail"),
     path('general/review_update/<int:pk>/', ReviewUpdateView.as_view(), name="review_update"),
+    path('general/review_delete/<int:pk>/', ReviewDeleteView.as_view(), name="review_delete"),
     path('general/register/', RegisterView.as_view(), name="register"),
     path('general/user_update/<int:pk>/', UserUpdateView.as_view(), name="user_update"),
     path('general/user_delete/<int:pk>/', UserDeleteView.as_view(), name="user_delete"),

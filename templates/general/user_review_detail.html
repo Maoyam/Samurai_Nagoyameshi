@@ -48,6 +48,7 @@
         </tr>
     </table>
     <a href={% url 'mypage' pk=user_id %} style="float: left;">戻る</a>
+    <a href="{% url 'review_delete' pk=review_id %}" class="btn" style="background-color: #F57F00; color: #FFFFFF;">削除</a>
     <a href={% url 'review_update' pk=review_id %} class="btn" style="background-color: #F57F00; color: #FFFFFF; float: right;">編集</a>
 </div>
 {% endblock %}

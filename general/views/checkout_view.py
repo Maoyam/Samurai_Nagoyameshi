@@ -62,40 +62,6 @@ def stripe_webhook(request):
         # Invalid signature
         return HttpResponse(status=400)
 
-    # Handle the checkout.session.completed event
-    # if event['type'] == 'checkout.session.completed':
-
-#     # # jsondataをフォルダ内に書き込みするテスト  ※webhook使用時   
-#     if event['type'] == 'invoice.created':
-#         with open("request.json", mode='w') as f:
-#             f.write(str(event))
-
-#         session = event['data']['object']
-
-#         # Fetch all the required data from session
-#         client_reference_id = session.get('client_reference_id')
-#         stripe_customer_id = session.get('customer')
-#         stripe_subscription_id = session.get('subscription')
-#         print(client_reference_id)
-#         print(stripe_customer_id)
-#         print(stripe_subscription_id)
-#         # Get the user and create a new Stripe_Customer
- 
-#         user = get_user_model().objects.get(id=client_reference_id)
-#         print(client_reference_id)
-#         print(user)
-#         StripeCustomer.objects.create(
-#             user=user,
-#             stripeCustomerId=stripe_customer_id,
-#             stripeSubscriptionId=stripe_subscription_id,
-#         )
-#         print("usercreate")
-
-#         print (' just subscribed.')
-
-#     return HttpResponse(status=200)
-
-# #--------------------------------
 
 @method_decorator(login_required,name="dispatch")
 class UpgradeView(TemplateView):

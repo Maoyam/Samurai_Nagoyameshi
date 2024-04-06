@@ -18,5 +18,5 @@ class RegisterView(View):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)            
-            return redirect('top')  # 登録成功後のリダイレクト先を指定
+            return redirect('top')  
         return render(request, 'general/user_form.html', {'form': form})
