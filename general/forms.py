@@ -59,8 +59,9 @@ class BookingForm(forms.ModelForm):
         tomorrow = date.today() + timedelta(days=1)
         widgets = {
             'booking_date': forms.DateInput(attrs={'type': 'date', 'style': 'font-size: 0.9em;','min':tomorrow.strftime('%Y-%m-%d')}),
-            'booking_time': forms.Select(choices=[(time(hour, minute), f"{hour:02d}:{minute:02d}") for hour in range(17, 22) for minute in [0, 30]]),
+            'booking_time': forms.Select(choices=[(time(hour, minute), f"{hour:02d}:{minute:02d}") for hour in range(17, 22) for minute in [0, 30]], attrs={'type': 'time', 'style': 'font-size: 0.9em;'}),
         }
+
         
     def clean_booking_date(self):
         booking_date = self.cleaned_data['booking_date']
