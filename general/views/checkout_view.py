@@ -3,11 +3,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http.response import JsonResponse, HttpResponse
 from commondb.models.user import User
 import stripe
+import os
 
 #-----サブスクメソッド------
 
@@ -16,8 +16,7 @@ import stripe
 def create_checkout_session(request):
     if request.method == 'GET':
 
-        # domain_url = 'http://127.0.0.1:8000/'
-        domain_url = 'https://samurai-nagoyameshi-aym-4b9b95116dd9.herokuapp.com/'
+        domain_url = settings.DOMAIN_URL
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
             checkout_session = stripe.checkout.Session.create(
