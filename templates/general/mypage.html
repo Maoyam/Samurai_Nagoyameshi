@@ -135,10 +135,13 @@
         {% endif %}
         {% if user.is_authenticated %}
           {% if not user.is_paid_member %}
-          <li class="mypg_user_info_item"><a href="{% url 'upgrade' %}">VIP会員に登録する</a></li>
+          <li class="mypg_user_info_item"><a href="{% url 'upgrade' %}">VIP会員に登録</a></li>
           {% endif %}
         {% endif %}
-        <li class="mypg_user_info_item"><a href="{% url 'user_delete' pk=user.pk %}">会員退会</a></li>     
+        <li class="mypg_user_info_item"><a href="{% url 'user_delete' pk=user.pk %}">会員退会</a></li>
+        {% if user.is_manage_member %}
+        <li class="mypg_user_info_item"><a href="{% url 'admi:admi_login' %}">管理サイトへ移動</a></li>
+        {% endif %}
       </ul>
     </div>
   </div>

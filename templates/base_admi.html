@@ -18,7 +18,8 @@
         </div>
         <!-- ナビゲーション -->
         <div class="admi_menu_container">
-            {% if request.user.is_authenticated %}    
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_manage_member %}        
             <a class="admi_logout_link" href="{% url 'admi:admi_logout' %}">ログアウト</a>
             <nav class="admi_menu" id="nav-pc">
                 <a href="{% url 'admi:company_update' pk=1 %}">会社情報編集</a>
@@ -48,8 +49,9 @@
             {% else %}
                 {% if request.path != '/admi/login/' %}
             <a class="admi_logout_link" href="{% url 'admi:admi_login' %}">ログイン</a>
-                 {% endif %}
+                {% endif %}
             {% endif %}
+        {% endif %}
         </div>
     </header>
     {% block content %}{% endblock %}

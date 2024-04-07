@@ -10,10 +10,38 @@ from .models.reguration import Reguration
 from .models.subscription import Subscription_record
 from django.utils.safestring import mark_safe
 from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django import forms
 
 
 # ユーザー管理
 User = get_user_model()
+
+class UserChangeForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = '__all__'
+
+class UserAdmin(BaseUserAdmin):
+    form = UserChangeForm
+    list_display = ('id', 'username', 'email', 'is_active', 'is_staff', 'is_superuser', 'is_paid_member', 'is_manage_member')
+    fieldsets = (
+        (None, {'fields': ('username', 'password')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'email')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions', 'is_paid_member', 'is_manage_member')}),
+        ('Important dates', {'fields': ('last_login', 'date_joined')}),
+    )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'email', 'password1', 'password2', 'is_active', 'is_staff', 'is_superuser', 'is_paid_member', 'is_manage_member')}
+        ),
+    )
+    search_fields = ('username', 'email')
+    ordering = ('username',)
+
+
+
 
 # 会社概要
 class CompanyAdmin(admin.ModelAdmin):
@@ -57,9 +85,10 @@ class FavoriteAdmin(admin.ModelAdmin):
 
 # 売り上げ
 class Subscription_recordAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'year', 'month', 'is_paid_member')
+    # list_display = ('id', 'user', 'year', 'month', 'is_paid_member')
+    list_display = ('id', 'user', 'year', 'month')
     
-admin.site.register(User)
+admin.site.register(User, UserAdmin)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Reguration, RegurationAdmin)
 admin.site.register(Area, AreaAdmin)

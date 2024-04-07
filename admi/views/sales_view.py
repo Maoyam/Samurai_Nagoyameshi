@@ -1,5 +1,7 @@
 from commondb.models.subscription import Subscription_record
 from django.views.generic import ListView
+from datetime import datetime
+
 
 
 class SubscriptionRecordListView(ListView):
@@ -24,14 +26,14 @@ class SubscriptionRecordListView(ListView):
         context['years'] = Subscription_record.objects.order_by().values_list('year', flat=True).distinct()
         
         # 選択された年を取得し、フィルターのデフォルト値として設定
-        selected_year = self.request.GET.get('year')
+        selected_year = self.request.GET.get('year', datetime.now().year)
         context['selected_year'] = selected_year
 
         # 月ごとの有料会員数と売上合計を取得
         monthly_data = []
         for month in range(1, 13):
             monthly_records = Subscription_record.objects.filter(year=selected_year, month=month)
-            member_count = monthly_records.filter(is_paid_member=True).count()
+            member_count = monthly_records.values('user').distinct().count()  # ユーザーIDの重複を許さずに数える
             total_sales = member_count * 300  # 月額代金は300円
             member_count_display = '-' if member_count == 0 else member_count
             total_sales_display = '-' if total_sales == 0 else total_sales

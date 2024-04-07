@@ -284,27 +284,31 @@ footer a {
 }
 
 
-/* 会社概要 */
-.company_info {
+/* テーブル設定(会社概要・admiサイト) */
+.table_info {
     width: 50vw;
     min-width: 200px;
     margin: 150px auto;
 }
 
-.company_info h2 {
+.table_info h2 {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.company_info table  {
+.table_info table  {
     border-collapse: collapse;
     width: 100%;
 }
 
-.company_info td {
+.table_info td {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 8px 8px 8px 8px;
+}
+/* テーブル左側の幅 */
+.table_info tr td:first-of-type {
+    width: 15vw;
 }
 
 /* 店舗詳細ページ */
@@ -801,6 +805,12 @@ color: #444444;
     margin-right: 0.3em;
 }
 
+/* テーブル */
+th {
+    text-wrap: nowrap;
+        
+    }
+
 /* パスワード */
 .password {
     padding: 30px 0;
@@ -1280,6 +1290,12 @@ color: #444444;
     margin: 70px auto;
 }
 
+/* 管理者テーブル */
+
+td {
+    vertical-align: middle;
+}
+
 /* 管理者 フッター */
 .admi_footer {
     background-color: #D9D9D9;
@@ -1378,9 +1394,17 @@ color: #444444;
         padding: 0 10px;
         margin: 70px auto;
     }
-    /* テーブル */
-    .admi-tbl th {
-        text-wrap: nowrap;
+    /* 店舗詳細の幅 */
+    .table_info {
+        width: 90vw;
+        min-width: 60vw;
+        margin: 50px auto;
         
     }
+
+    /* テーブル左側の幅 */
+    .table_info tr td:first-of-type {
+    width: 30vw;
+    }
+
 }
