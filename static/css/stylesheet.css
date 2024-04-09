@@ -1,12 +1,13 @@
 body {
-    font-family: 'Hiragino Sans','Yu Gothic','Arial Narrow', Arial, sans-serif;
+    font-family: 'Hiragino Sans', 'Yu Gothic', 'Arial Narrow', Arial, sans-serif;
 }
+
 
 h2 {
     font-size: 1rem;
     color: #F57F00;
     margin-bottom: 5px;
-    font-weight: 600;  
+    font-weight: 600;
 }
 
 a {
@@ -19,7 +20,7 @@ li {
 }
 
 .button {
-    background-color: #F57F00; 
+    background-color: #F57F00;
     color: white;
 }
 
@@ -58,6 +59,7 @@ li {
     max-width: 350px;
     margin: 30px auto;
 }
+
 .form_container button {
     float: right;
     margin-bottom: 30px;
@@ -68,6 +70,11 @@ input[type="submit"] {
     color: #FFF;
     background-color: #F57F00;
     float: right;
+}
+
+/* テーブル */
+th {
+    text-wrap: nowrap;
 }
 
 
@@ -100,7 +107,7 @@ header {
     max-height: 100%;
 }
 
-.logo-container > p {
+.logo-container>p {
     display: inline;
     margin: 0;
     padding: 5px;
@@ -108,7 +115,7 @@ header {
     text-wrap: nowrap;
 }
 
-.logo-container > h1 > a > img {
+.logo-container>h1>a>img {
     height: 80px;
 }
 
@@ -117,11 +124,11 @@ header nav {
     text-align: right;
 }
 
-header nav > a {
-   text-decoration: none; 
-   font-size: 0.9em;
-   color: #444444;
-   padding: 0;
+header nav>a {
+    text-decoration: none;
+    font-size: 0.9em;
+    color: #444444;
+    padding: 0;
 }
 
 header nav p {
@@ -154,7 +161,7 @@ header nav p {
     margin: 0 auto;
 }
 
-.top-images > img {
+.top-images>img {
     max-width: 100%;
     margin: 10px 0;
 }
@@ -162,12 +169,12 @@ header nav p {
 
 /* コンテンツ */
 .main-contents {
- display: flex;
- flex-direction: row;
- justify-content: center;
- width: 90%;
- max-width: 1000px;
- margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
 }
 
 .main-contents p {
@@ -186,7 +193,7 @@ header nav p {
 
 }
 
-.search-window > div {
+.search-window>div {
     background-color: rgba(255, 135, 5, 0.16);
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
@@ -197,7 +204,7 @@ header nav p {
 
 input::placeholder {
     font-size: 0.7em;
-   }
+}
 
 .search-window input[type="submit"] {
     width: 20%;
@@ -235,14 +242,16 @@ input::placeholder {
 }
 
 .genre-buttons a {
-    flex: 0 0 calc(50% - 5px); /* 要素の幅を50%に設定し、間隔を考慮して10px引く */
-    max-width: calc(50% - 5px); /* 最大幅も同じ */
+    flex: 0 0 calc(50% - 5px);
+    /* 要素の幅を50%に設定し、間隔を考慮して10px引く */
+    max-width: calc(50% - 5px);
+    /* 最大幅も同じ */
 }
 
 .genre-buttons img {
     width: 100%;
     border-radius: 5px;
-    
+
 }
 
 .genre-noimages {
@@ -265,7 +274,7 @@ footer {
     margin-top: 60px;
 }
 
-footer > nav {
+footer>nav {
     text-align: center;
     font-size: 14px;
     padding-top: 15px;
@@ -296,7 +305,7 @@ footer a {
     margin-bottom: 30px;
 }
 
-.table_info table  {
+.table_info table {
     border-collapse: collapse;
     width: 100%;
 }
@@ -306,6 +315,7 @@ footer a {
     text-align: left;
     padding: 8px 8px 8px 8px;
 }
+
 /* テーブル左側の幅 */
 .table_info tr td:first-of-type {
     width: 15vw;
@@ -329,13 +339,13 @@ footer a {
     height: auto;
     width: auto;
     font-size: 0.9em;
-    border-radius: 5px;
+    border-radius: 100%;
     background-color: #F57F00;
     color: #FFF;
     position: absolute;
     right: 1rem;
     top: 25px;
-    padding: 10px 20px;
+    padding: 14px 15px;
 }
 
 /* 店舗詳細左 */
@@ -361,6 +371,7 @@ footer a {
     max-width: 300px;
     border-radius: 2px;
 }
+
 /* 店舗詳細右 */
 
 .shop_info_R {
@@ -369,7 +380,7 @@ footer a {
     min-width: 300px;
     margin-left: 20px;
     padding-top: 12px;
-} 
+}
 
 .info-container {
     display: flex;
@@ -392,18 +403,15 @@ footer a {
     font-size: 0.9em;
 }
 
-#favorite-button {
-    border-radius: 100%;
-    padding: 14px 15px;
-}
+
 
 #favorite-button img {
     vertical-align: middle;
-    width: 20px; 
+    width: 20px;
     height: 20px;
 }
 
-/* レビューと予約 */
+/* 店舗詳細：レビューと予約 */
 .shop_contents {
     display: flex;
     flex-direction: row;
@@ -413,20 +421,20 @@ footer a {
     padding: 30px 60px 0 60px;
 
 
-    
+
 }
 
-/* レビュー */
+/* 店舗詳細：レビュー */
 .review_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50%;
-    
+
 }
 
-.review_top_container{
+.review_top_container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -434,11 +442,12 @@ footer a {
     width: 100%;
 }
 
-.review_top_container h3,.review_top_container h3 p {
+.review_top_container h3,
+.review_top_container h3 p {
     display: inline-block;
 }
 
-.review_top_container > div {
+.review_top_container>div {
     align-self: self-end;
 }
 
@@ -470,10 +479,10 @@ footer a {
 }
 
 .review_images img {
-    width: 100px; 
-    height: 100px; 
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 /* スターの色を#F57F00に変更 */
@@ -482,14 +491,14 @@ footer a {
 }
 
 
-/* 予約フォーム */
+/* 店舗詳細：予約フォーム */
 .booking-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50%;
-    filter: drop-shadow(0px 1px 1px #000000);
+    filter: drop-shadow(0px 1px 1px #9c9c9c);
     padding-top: 33px;
     margin-left: 20px;
 }
@@ -504,7 +513,8 @@ footer a {
     font-size: 0.7em;
 }
 
-.booking_header, .booking_form {
+.booking_header,
+.booking_form {
     width: 300px;
     min-width: 200px;
 }
@@ -512,14 +522,14 @@ footer a {
 .booking_form {
     background-color: #FFFDFB;
     height: auto;
-    
+
 }
 
 .booking_form div {
     width: 80%;
     height: 80%;
     margin: 0 auto;
-    padding-top: 25px;   
+    padding-top: 25px;
 
 }
 
@@ -539,13 +549,20 @@ footer a {
     height: 2.2em;
 }
 
-.booking_form input[name="booking_date"],
-.booking_form input[name="numbers_of_ppl"],
-.booking_form input[name="numbers_of_ppl"]
- {
+.booking_form input[name="numbers_of_ppl"] {
     padding-left: 3px;
 }
 
+#id_booking_time {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #929292;
+    background-color: #FFF;
+    color: #929292;
+    width: 100%;
+    height: 2.2em;
+    padding-left: 3px;
+}
 
 .booking_form button {
     background-color: #F57F00;
@@ -557,13 +574,13 @@ footer a {
     width: 100%;
 }
 
-/* 有料会以外の予約フォーム表示 */
+/* 有料以外の予約フォーム表示 */
 .booking_n_form {
     background-color: #FFFDFB;
     width: 300px;
     min-width: 200px;
     text-align: center;
-    
+
 }
 
 .booking_n_form p {
@@ -613,7 +630,7 @@ footer a {
     margin-bottom: 10px;
 }
 
-.shop_item > div {
+.shop_item>div {
     width: 200px;
     height: 150px;
     overflow: hidden;
@@ -629,7 +646,7 @@ footer a {
     padding: 1rem;
 }
 
-.shop_item_text p:nth-of-type(2){
+.shop_item_text p:nth-of-type(2) {
     height: 61px;
     width: 168px;
     overflow-y: scroll;
@@ -678,15 +695,16 @@ footer a {
     margin-bottom: 30px;
 }
 
-.review_title > p, .review_title > h1 {
+.review_title>p,
+.review_title>h1 {
     text-align: center;
 }
 
-.review_title > p {
+.review_title>p {
     color: #F57F00;
 }
 
-.review_title > h1 {
+.review_title>h1 {
     font-weight: bold;
     font-size: 1.5em;
 }
@@ -697,14 +715,14 @@ footer a {
 }
 
 /* マイページ */
-
 .mypg_container {
     width: 80vw;
     margin: 50px auto;
-    
+
 }
 
-.mypg_container th, td {
+.mypg_container th,
+td {
     font-size: 14px;
 }
 
@@ -726,11 +744,13 @@ footer a {
 }
 
 
-.mypg_container th, .mypg_container td {
+.mypg_container th,
+.mypg_container td {
     border-bottom: 1px dotted #000;
     padding: 8px;
     text-align: center;
 }
+
 .mypg_container th {
     background-color: #FFECD7;
     border: none;
@@ -752,7 +772,7 @@ footer a {
     width: 48%;
 }
 
-.fav_rev_item h3{
+.fav_rev_item h3 {
     padding-bottom: 5px;
 }
 
@@ -766,19 +786,21 @@ footer a {
 .past_booking_container th {
     background-color: #D9D9D9;
 }
+
 /* マイページ 会員情報 */
 .mypg_user_info {
     margin-top: 50px;
 }
+
 .mypg_user_info_container {
     display: flex;
     flex-wrap: wrap;
-    gap:5px 0;
+    gap: 5px 0;
     justify-content: left;
     width: 100%;
 }
 
-.mypg_user_info_item{
+.mypg_user_info_item {
     display: inline-block;
     background-color: #FFECD7;
     border-radius: 5px;
@@ -794,8 +816,8 @@ footer a {
 }
 
 .mypg_user_info_item a {
-font-size: 0.9em;
-color: #444444;
+    font-size: 0.9em;
+    color: #444444;
 }
 
 .mypg_container img {
@@ -805,23 +827,18 @@ color: #444444;
     margin-right: 0.3em;
 }
 
-/* テーブル */
-th {
-    text-wrap: nowrap;
-        
-    }
-
 /* パスワード */
 .password {
     padding: 30px 0;
 }
-.password button{
+
+.password button {
     margin: 10px 0 0 7px;
 
 }
 
 /* フォームのスタイル */
- .form_container {
+.form_container {
     max-width: 400px;
     margin: auto;
 }
@@ -840,6 +857,7 @@ th {
     font-size: .875rem;
     color: #dc3545;
 }
+
 /* 新規アカウント登録 */
 .register {
     width: 60vw;
@@ -847,6 +865,7 @@ th {
     margin-left: auto;
     padding-bottom: 30px;
 }
+
 .register h2 {
     text-align: center;
 }
@@ -864,24 +883,26 @@ th {
 
 .upgrade_box_container {
     background-color: #FFFDFB;
-    box-shadow:2px 4px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
     padding: 20px 0;
     width: 400px;
     height: 280px;
-    margin: 0 auto 30px auto; 
+    margin: 0 auto 30px auto;
 }
 
 .upgrade_box_title {
     background-color: #F57F00;
 }
 
-.upgrade_box_title h2{
+.upgrade_box_title h2 {
     padding: 15px 0;
     font-size: 20px;
 }
+
 .upgrade_list_container {
     margin-top: 1rem;
 }
+
 .upgrade_list_container li {
     font-size: 18px;
     padding-top: 1.2em;
@@ -901,29 +922,31 @@ th {
 
 
 @media screen and (max-width: 767px) {
+
     /* ヘッダー */
     .logo-container {
         display: flex;
         flex-direction: column;
-        align-items:baseline;
+        align-items: baseline;
         padding-left: 0;
         padding-top: 5px;
     }
-    .logo-container > h1 > a > img {
+
+    .logo-container>h1>a>img {
         height: 80px;
     }
-    
-    header nav > a {
-        text-decoration: none; 
+
+    header nav>a {
+        text-decoration: none;
         font-size: 0.9em;
         color: #444444;
         padding: 0;
-     }
-     
-     header nav p {
-         margin-bottom: 5px;
-         font-size: 0.8em;
-     }
+    }
+
+    header nav p {
+        margin-bottom: 5px;
+        font-size: 0.8em;
+    }
 
     /* メインコンテンツ */
     .main-contents {
@@ -932,39 +955,45 @@ th {
         padding-left: 5vw;
         row-gap: 10px;
     }
+
     /* 左側コンテンツ */
     .left-container {
         width: 100%;
-}
+    }
 
     /* 右側コンテンツ */
     .right-container {
         width: 100%;
         margin-top: 30px;
         padding-right: 20px;
-}
+    }
+
     .genre-buttons {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
         width: 100%;
         max-width: 600px;
-}
+    }
+
     .genre-buttons a {
         width: 30%;
         max-width: 180px;
-}
+    }
+
     .company_info {
         width: 100%;
         margin: 50px auto;
         padding: 0 20px;
-}
+    }
+
     /* フォーム */
     .form_container {
         width: 100%;
         padding: 0 10px;
-}
-/* 店舗リスト */
+    }
+
+    /* 店舗リスト */
     .shop_list_container {
         display: flex;
         justify-content: center;
@@ -973,7 +1002,7 @@ th {
         margin-left: 0;
         margin-right: 15px;
 
-}
+    }
 
     .shop_item {
         width: 80vw;
@@ -981,32 +1010,34 @@ th {
         margin-bottom: 7px;
         border-radius: 5px;
     }
-    .shop_item > div {
+
+    .shop_item>div {
         width: 80vw;
         height: 150px;
         overflow: hidden;
     }
-    
+
     .shop_item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-    
+
     .shop_item_text {
         padding: 1rem;
     }
-    
-    .shop_item_text p:nth-of-type(2){
+
+    .shop_item_text p:nth-of-type(2) {
         height: 61px;
         width: 100%;
         overflow-y: scroll;
     }
-    
+
     .shop_item_text p {
         font-size: 0.8em;
 
     }
+
     /* 店舗詳細 */
     .shop_info {
         display: flex;
@@ -1026,7 +1057,7 @@ th {
 
     }
 
-    .shop_info_L img{
+    .shop_info_L img {
         width: 100%;
     }
 
@@ -1035,37 +1066,38 @@ th {
         height: auto;
         min-width: 300px;
         padding-bottom: 20px;
-    } 
+    }
 
-    .shop_info_R > p{
+    .shop_info_R>p {
         text-align: center;
-    } 
-    
+    }
+
     .info-container {
         display: flex;
         flex-direction: column;
     }
-    
-    .price_genre  {
-        display:block;
+
+    .price_genre {
+        display: block;
     }
+
     .price_genre p {
-        display:block;
+        display: block;
         padding-bottom: 0.3em;
         text-align: center;
     }
-    
+
     .info-scroll {
         height: 150px;
         overflow-y: scroll;
         margin-top: 20px;
     }
-    
+
     .shop_info_R p {
         font-size: 0.9em;
     }
 
-        /* レビューと予約 */
+    /* レビューと予約 */
     .shop_contents {
         display: flex;
         flex-direction: column;
@@ -1074,7 +1106,7 @@ th {
         padding: 20px 0 0 0;
 
 
-        
+
     }
 
     /* レビュー */
@@ -1083,7 +1115,7 @@ th {
         width: 100%;
         max-width: 450px;
         padding: 0 20px;
-        
+
     }
 
     .btn_rev {
@@ -1109,11 +1141,12 @@ th {
         font-size: 0.7em;
     }
 
-    .booking_header, .booking_form {
+    .booking_header,
+    .booking_form {
         width: 90%;
     }
 
-/* マイページ */
+    /* マイページ */
 
     .btn_basic {
         font-size: 1em;
@@ -1122,22 +1155,24 @@ th {
     }
 
     .mypg_container {
-        width: 90vw;        
+        width: 90vw;
     }
-    
-    .mypg_container th, td {
+
+    .mypg_container th,
+    td {
         font-size: 13px;
     }
+
     .mypg_container th {
         text-wrap: nowrap;
     }
 
-    
+
     .new_booking_container {
         height: auto;
         max-height: 200px;
     }
-    
+
     .fav_rev_container {
         display: flex;
         flex-direction: column;
@@ -1145,22 +1180,22 @@ th {
         width: 100%;
         margin: 50px auto;
     }
-    
+
     .fav_rev_tble {
         height: auto;
         max-height: 300px;
         overflow-y: auto;
     }
-    
+
     .fav_rev_item {
         width: 100%;
         margin: 20px 0;
     }
-    
-    .fav_rev_item h3{
+
+    .fav_rev_item h3 {
         padding-bottom: 5px;
     }
-    
+
     .past_booking_container {
         width: 100%;
         height: auto;
@@ -1175,15 +1210,18 @@ th {
         min-width: 200px;
         margin: 50px auto;
     }
+
     .company_info td {
         font-size: 1rem;
     }
+
     /* 会員規約 */
     .reguration-container {
         padding-left: 20px;
         padding-right: 20px;
         width: 100vw;
     }
+
     .reguration {
         width: 90vw;
     }
@@ -1203,13 +1241,14 @@ th {
     display: inline;
     font-size: 20px;
 }
+
 /* 上下マージン */
 .space_topbottom {
     margin: 40px auto;
 }
 
 
-  /* 管理者 ヘッダー */
+/* 管理者 ヘッダー */
 .admi_menu_container {
     display: flex;
     flex-direction: column;
@@ -1217,27 +1256,28 @@ th {
     justify-content: space-between;
     align-items: end;
     padding-bottom: 3px;
-    
+
 }
 
-.admi_menu_container > a {
+.admi_menu_container>a {
     text-decoration: none;
     color: #000;
     padding-right: 10px;
     font-size: 0.9em;
 
 }
+
 .admi_menu_container nav a {
     padding-left: 10px;
 }
 
 #menu-sp {
     display: none;
-  }
+}
 
 #close {
     display: none;
-  }
+}
 
 #nav-sp {
     display: none;
@@ -1248,16 +1288,16 @@ th {
     font-size: 0.8rem;
 }
 
-.page_paginator a{
+.page_paginator a {
     color: #000000;
     margin-right: 5px;
 }
 
 /* フォーム */
 .add_form label:after {
-     content: " *必須";
-     color: red;
-     font-size: 0.8em;
+    content: " *必須";
+    color: red;
+    font-size: 0.8em;
 }
 
 .add_form input {
@@ -1301,11 +1341,14 @@ td {
     background-color: #D9D9D9;
     width: 100vw;
 }
+
 .admi_footer p {
     text-align: center;
-    font-size: 0.8em; 
+    font-size: 0.8em;
 }
-.admi_footer a, .admi_footer p {
+
+.admi_footer a,
+.admi_footer p {
     color: #000000;
 }
 
@@ -1321,36 +1364,37 @@ td {
         position: relative;
         min-width: 375px;
         margin: 0;
-      }
-    
-      /* PC用ナビゲーション非表示 */
-      #nav-pc {
+    }
+
+    /* PC用ナビゲーション非表示 */
+    #nav-pc {
         display: none;
-      }
-    
-      /* ハンバーガーメニュー */
-      #menu-sp {
+    }
+
+    /* ハンバーガーメニュー */
+    #menu-sp {
         display: block;
         position: absolute;
         top: 65px;
         right: 10px;
         width: 45px;
         height: 45px;
-      }
+    }
 
-      #close {
+    #close {
         display: block;
         width: 45px;
         height: 45px;
         position: absolute;
         top: 20px;
         right: 20px;
-      }
+    }
 
-      #space {
+    #space {
         margin: 100px 0 30px 20px;
-      }
-        /* スマホ用ナビゲーションの表示切替 */
+    }
+
+    /* スマホ用ナビゲーションの表示切替 */
     /* 初期状態、レイアウトと非表示設定 */
     #nav-sp {
         display: block;
@@ -1363,24 +1407,30 @@ td {
         display: none;
         z-index: 100;
     }
+
     /* ナビゲーションのリンクの装飾設定 */
-    #nav-sp > a {
+    #nav-sp>a {
         display: block;
     }
-    #nav-sp > a:link {
+
+    #nav-sp>a:link {
         color: #000;
     }
-    #nav-sp > a:visited {
+
+    #nav-sp>a:visited {
         color: #000;
     }
-    #nav-sp > a:hover {
+
+    #nav-sp>a:hover {
         color: #ffffff;
         text-decoration: underline;
     }
-    #nav-sp > a:active {
+
+    #nav-sp>a:active {
         color: #ffffff;
     }
-    #nav-sp > .menu {
+
+    #nav-sp>.menu {
         text-decoration: none;
         display: block;
         margin: 0 20px 0 20px;
@@ -1394,17 +1444,18 @@ td {
         padding: 0 10px;
         margin: 70px auto;
     }
+
     /* 店舗詳細の幅 */
     .table_info {
         width: 90vw;
         min-width: 60vw;
         margin: 50px auto;
-        
+
     }
 
     /* テーブル左側の幅 */
     .table_info tr td:first-of-type {
-    width: 30vw;
+        width: 30vw;
     }
 
 }

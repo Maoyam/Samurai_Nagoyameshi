@@ -4,55 +4,55 @@
 {% block title %}店舗詳細{% endblock %}
 
 {% block content %}
-<div class="table_info">
-    <h2 class="admi_h2">店舗詳細</h2>
-    <table class="table table-bordered">
-        <tr>
-            <td>店舗名</td>
-            <td>{{ restaurant.name }}</td>
-        </tr>
-        <tr>
-            <td>店舗名アルファベット表記</td>
-            <td>{{ restaurant.name_alphabet }}</td>
-        </tr>
-        <tr>
-            <td>カテゴリー</td>
-            <td>{{ restaurant.genre }}</td>
-        </tr>
-        <tr>
-            <td>所在地</td>
-            <td>{{ restaurant.address }}</td>
-        </tr>
-        <tr>
-            <td>エリア</td>
-            <td>{{ restaurant.area }}</td>
-        </tr>
-        <tr>
-            <td>電話番号</td>
-            <td>{{ restaurant.phone }}</td>
-        </tr>
-        <tr>
-            <td>営業時間</td>
-            <td>{{ restaurant.time }}</td>
-        </tr>
-        <tr>
-            <td>下限価格</td>
-            <td>{{ restaurant.price_low }}</td>
-        </tr>
-        <tr>
-            <td>上限価格</td>
-            <td>{{ restaurant.price_high }}</td>
-        </tr>
-        <tr>
-            <td>画像</td>
-            <td><img src="{{ restaurant.image.url }}" alt="Restaurant Image" style="width:150px; height: auto;"></td>
-        </tr>
-        <tr>
-            <td>お店の説明</td>
-            <td class="bold">{{ restaurant.information }}</td>
-        </tr>
-    </table>
-    <a href={% url 'admi:shop_list' %}>戻る</a>
-    <a href={% url 'admi:edit_shop' pk=restaurant.id %}>編集</a>
-</div>
+    <div class="table_info">
+        <h2 class="admi_h2">店舗詳細</h2>
+        <table class="table table-bordered">
+            <tr>
+                <td>店舗名</td>
+                <td>{{ restaurant.name }}</td>
+            </tr>
+            <tr>
+                <td>店舗名アルファベット表記</td>
+                <td>{{ restaurant.name_alphabet }}</td>
+            </tr>
+            <tr>
+                <td>カテゴリー</td>
+                <td>{{ restaurant.genre }}</td>
+            </tr>
+            <tr>
+                <td>所在地</td>
+                <td>{{ restaurant.address }}</td>
+            </tr>
+            <tr>
+                <td>エリア</td>
+                <td>{{ restaurant.area }}</td>
+            </tr>
+            <tr>
+                <td>電話番号</td>
+                <td>{{ restaurant.phone }}</td>
+            </tr>
+            <tr>
+                <td>営業時間</td>
+                <td>{{ restaurant.time }}</td>
+            </tr>
+            <tr>
+                <td>下限価格</td>
+                <td>{{ restaurant.price_low }}</td>
+            </tr>
+            <tr>
+                <td>上限価格</td>
+                <td>{{ restaurant.price_high }}</td>
+            </tr>
+            <tr>
+                <td>画像</td>
+                <td><img src="{{ restaurant.image.url }}" alt="Restaurant Image" style="width:150px; height: auto;"></td>
+            </tr>
+            <tr>
+                <td>お店の説明</td>
+                <td class="bold">{{ restaurant.information }}</td>
+            </tr>
+        </table>
+        <a href={% url 'admi:shop_list' %}>戻る</a>
+        <a href={% url 'admi:edit_shop' pk=restaurant.id %}>編集</a>
+    </div>
 {% endblock %}

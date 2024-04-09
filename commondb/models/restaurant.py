@@ -6,7 +6,7 @@ from django.core.validators import RegexValidator
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=100, verbose_name="店舗名")
-    name_alphabet = models.CharField(max_length=100, validators=[RegexValidator(r'^[a-zA-Z]+$')], verbose_name="店舗名アルファベット表記")
+    name_alphabet = models.CharField(max_length=100, validators=[RegexValidator(r'^[a-zA-Z\s]+$')], verbose_name="店舗名アルファベット表記")
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, verbose_name="カテゴリー")
     address = models.CharField(max_length=100, verbose_name="所在地")
     area = models.ForeignKey(Area, on_delete=models.CASCADE, verbose_name="エリア")

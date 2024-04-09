@@ -7,7 +7,7 @@
 {% block title %}レビュー詳細{% endblock %}
 
 {% block content %}
-<div class="company_info text-center">
+<div class="table_info text-center">
     <h2 class="admi_h2">レビュー詳細</h2>
     <table class="table table-bordered">
         <tr>
@@ -48,7 +48,8 @@
         </tr>
     </table>
     <a href={% url 'mypage' pk=user_id %} style="float: left;">戻る</a>
-    <a href="{% url 'review_delete' pk=review_id %}" class="btn" style="background-color: #F57F00; color: #FFFFFF;">削除</a>
     <a href={% url 'review_update' pk=review_id %} class="btn" style="background-color: #F57F00; color: #FFFFFF; float: right;">編集</a>
-</div>
+    <a href="{% url 'review_delete' pk=review_id %}" class="btn btn-secondary" style="color: #FFFFFF; float: right; margin-right: 10px;">削除</a>
+    </div>
+    
 {% endblock %}
