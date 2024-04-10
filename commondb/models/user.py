@@ -11,9 +11,9 @@ class User(AbstractUser):
          return reverse('top')
      
      
-    # class Meta:
-    #     verbose_name = 'ユーザー'
-    #     verbose_name_plural = 'ユーザー一覧'
+    class Meta:
+        verbose_name = 'ユーザー'
+        verbose_name_plural = 'ユーザー一覧'
         
     
 
