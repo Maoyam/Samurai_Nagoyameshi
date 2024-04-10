@@ -158,7 +158,7 @@ AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 # バケット名
-AWS_STORAGE_BUCKET_NAME = 'nagoyameshi-samurai-aym'
+AWS_STORAGE_BUCKET_NAME = 'aym-mdk-samurai-nagoyameshi'
 
 # 保存先URL
 STATIC_URL = 'https://aym-mdk-samurai-nagoyameshi.s3.ap-northeast-1.amazonaws.com/'
