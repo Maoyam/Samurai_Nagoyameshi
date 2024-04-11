@@ -35,7 +35,7 @@
             <nav id="nav-sp">
                 <img id="close" src="/static/admi/close.svg" alt="ナビゲーションを閉じる" onclick="document.getElementById('nav-sp').style.display = 'none'">
                 <div id="space"></div>
-                <a class="menu" href="{% url 'admi:company_update' pk=1 %}" onclick="document.getElementById('nav-sp').style.display = 'none'">会社情報編集</a>
+                <a class="menu" href="{% url 'admi:company_update' pk=2 %}" onclick="document.getElementById('nav-sp').style.display = 'none'">会社情報編集</a>
                 <a class="menu" href="{% url 'admi:shop_list' %}" onclick="document.getElementById('nav-sp').style.display = 'none'">店舗情報</a>
                 <a class="menu" href="{% url 'admi:genre_list' %}" onclick="document.getElementById('nav-sp').style.display = 'none'">ジャンル一覧</a>
                 <a class="menu" href="{% url 'admi:user_list' %}"
