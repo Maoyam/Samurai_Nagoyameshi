@@ -22,7 +22,7 @@
             {% if request.user.is_manage_member %}        
             <a class="admi_logout_link" href="{% url 'admi:admi_logout' %}">ログアウト</a>
             <nav class="admi_menu" id="nav-pc">
-                <a href="{% url 'admi:company_update' pk=1 %}">会社情報編集</a>
+                <a href="{% url 'admi:company_update' pk=2 %}">会社情報編集</a>
                 <a href="{% url 'admi:shop_list' %}">店舗情報</a>
                 <a href="{% url 'admi:genre_list' %}">ジャンル一覧</a>
                 <a href="{% url 'admi:user_list' %}">会員情報</a>
