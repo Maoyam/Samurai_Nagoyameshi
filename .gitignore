@@ -9,4 +9,3 @@ db.sqlite3
 .env_aws_s3
 .env_stripe
 .bash_history
-local_settings.py
