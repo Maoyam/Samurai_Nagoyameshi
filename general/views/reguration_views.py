@@ -14,6 +14,6 @@ class RegTemplateView(TemplateView):
     
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
-        context['object'] = get_object_or_404(Reguration, pk=1)
+        context['object'] = get_object_or_404(Reguration, pk=2)
         context['previous_page'] = self.request.META.get('HTTP_REFERER', reverse('top'))  # 前のページのURLを取得        
         return context

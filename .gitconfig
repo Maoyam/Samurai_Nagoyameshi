@@ -7,4 +7,4 @@
 	co = checkout
 	tree = log --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ad %Creset%x09%C(cyan)%an%Creset %x09%C(auto)%s %d' --date=format-local:'%Y/%m/%d %H:%M:%S'
 [credential]
-	helper = "!f() { /root/.vscode-server/bin/5c3e652f63e798a5ac2f31ffd0d863669328dc4c/node /tmp/vscode-remote-containers-51ac74c4-33be-493f-b648-de80e37f1dde.js git-credential-helper $*; }; f"
+	helper = "!f() { /root/.vscode-server/bin/5c3e652f63e798a5ac2f31ffd0d863669328dc4c/node /tmp/vscode-remote-containers-be8e6680-6217-440e-8cb6-690dbe491861.js git-credential-helper $*; }; f"
